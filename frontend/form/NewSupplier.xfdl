@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="NewSupplier" width="1280" height="720" titletext="New Supplier" font="normal 500 14px/20px &quot;Segoe UI&quot;" onload="NewSupplier_onload">
+    <Layouts>
+      <Layout height="945" width="1920">
+        <Div id="div00" taborder="0" left="0" top="0" width="500" height="720" text="">
+          <Layouts>
+            <Layout>
+              <Static id="sta00" taborder="0" text="New Supplier" left="29" top="27" width="124" height="30" font="normal 500 20px/30px &quot;Segoe UI&quot;" color="#383e49"/>
+              <Div id="div00" taborder="1" text="div00" left="142" top="69" width="211" height="81">
+                <Layouts>
+                  <Layout>
+                    <ImageViewer id="img00" taborder="0" left="0" top="0" width="81" height="81" border="1px dashed #9d9d9d" borderRadius="50%" ondrop="fn_image_ondrop" stretch="fixaspectratio"/>
+                    <Static id="sta00" taborder="1" text="Drag image here" left="101" top="9" width="110" height="20" font="normal 400 14px/20px &quot;Segoe UI&quot;" color="#858d9d" textAlign="center"/>
+                    <Static id="sta01" taborder="2" text="or" left="149" top="30" width="14" height="20" font="normal 400 14px/20px &quot;Segoe UI&quot;" color="#858d9d" textAlign="center"/>
+                    <Static id="sta02" taborder="3" text="Browse image" left="109" top="52" width="94" height="20" font="normal 400 14px/20px &quot;Segoe UI&quot;" color="#448df2" textAlign="center" onclick="fn_browseImage"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="div01" taborder="2" left="29" top="182" width="440" height="44">
+                <Layouts>
+                  <Layout>
+                    <Static id="sta00" taborder="0" text="Supplier Name" left="0" top="10" width="112" height="24" font="normal 500 16px/24px &quot;Segoe UI&quot;" color="#48505e"/>
+                    <Edit id="edt00" taborder="1" height="44" width="273" right="0" top="0" borderRadius="8px" displaynulltext="Enter supplier name" font="normal 400 16px/24px &quot;Segoe UI&quot;"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="div01_00" taborder="3" left="29" top="250" width="440" height="44">
+                <Layouts>
+                  <Layout>
+                    <Static id="sta00" taborder="0" text="Product" left="0" top="10" width="112" height="24" font="normal 500 16px/24px &quot;Segoe UI&quot;" color="#48505e"/>
+                    <Combo id="cbo_product" taborder="1" height="44" width="273" right="0" top="0" borderRadius="8px" font="normal 400 16px/24px &quot;Segoe UI&quot;" displaynulltext="Select product" codecolumn="id" datacolumn="name" type="filterlike"/></Layout>
+                </Layouts>
+              </Div>
+              <Div id="div01_00_00" taborder="4" left="29" top="318" width="440" height="44">
+                <Layouts>
+                  <Layout>
+                    <Static id="sta00" taborder="0" text="Category" left="0" top="10" width="112" height="24" font="normal 500 16px/24px &quot;Segoe UI&quot;" color="#48505e"/>
+                    <Combo id="cbo_category" taborder="1" height="44" width="273" right="0" top="0" borderRadius="8px" font="normal 400 16px/24px &quot;Segoe UI&quot;" displaynulltext="Select product category" codecolumn="id" datacolumn="name" onitemchanged="div01_category_onitemchanged"/></Layout>
+                </Layouts>
+              </Div>
+              <Div id="div01_00_00_00" taborder="5" left="29" top="386" width="440" height="44">
+                <Layouts>
+                  <Layout>
+                    <Static id="sta00" taborder="0" text="Buying Price" left="0" top="10" width="112" height="24" font="normal 500 16px/24px &quot;Segoe UI&quot;" color="#48505e"/>
+                    <Edit id="edt00" taborder="1" height="44" width="273" right="0" top="0" borderRadius="8px" displaynulltext="Enter buying price" font="normal 400 16px/24px &quot;Segoe UI&quot;"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="div01_00_00_00_00" taborder="6" left="29" top="454" width="440" height="44">
+                <Layouts>
+                  <Layout>
+                    <Static id="sta00" taborder="0" text="Contact Number" left="0" top="10" width="131" height="24" font="normal 500 16px/24px &quot;Segoe UI&quot;" color="#48505e"/>
+                    <Edit id="edt00" taborder="1" height="44" width="273" right="0" top="0" borderRadius="8px" displaynulltext="Enter supplier contact number" font="normal 400 16px/24px &quot;Segoe UI&quot;"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="div02" taborder="7" text="div02" left="29" top="522" width="319" height="104">
+                <Layouts>
+                  <Layout>
+                    <Static id="sta00" taborder="0" text="Type" left="0" top="0" width="38" height="24" font="normal 500 16px/24px &quot;Segoe UI&quot;" color="#48505e"/>
+                    <Div id="div00" taborder="1" width="157" height="104" top="0" right="0">
+                      <Layouts>
+                        <Layout>
+                          <Button id="btn00" taborder="0" text="Not taking return" left="0" top="0" width="157" height="44" borderRadius="8px" color="#858d9d" font="normal 400 16px/24px &quot;Segoe UI&quot;" onclick="btn_not_taking_return_onclick"/>
+                          <Button id="btn01" taborder="1" text="Taking return" left="0" width="120" height="44" borderRadius="8px" color="#858d9d" font="normal 400 16px/24px &quot;Segoe UI&quot;" bottom="0" onclick="btn_taking_return_onclick"/>
+                        </Layout>
+                      </Layouts>
+                    </Div>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Button id="btn00" taborder="8" text="Discard" left="229" top="658" width="110" height="39" borderRadius="4px" color="#858d9d" font="normal 500 16px/100% &quot;Segoe UI&quot;" onclick="div00_btn00_onclick"/>
+              <Button id="btn01" taborder="9" text="Add Supplier" left="351" top="658" width="119" height="40" borderRadius="4px" background="#1366d9" color="#ffffff" font="normal 500 14px/20px &quot;Segoe UI&quot;" onclick="div00_btn01_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects><Dataset id="ds_categories"><ColumnInfo><Column id="id" type="STRING" size="32"/><Column id="name" type="STRING" size="256"/><Column id="categoryId" type="STRING" size="32"/><Column id="productCode" type="STRING" size="256"/></ColumnInfo></Dataset><Dataset id="ds_products"><ColumnInfo><Column id="id" type="STRING" size="32"/><Column id="name" type="STRING" size="256"/><Column id="categoryId" type="STRING" size="32"/><Column id="productCode" type="STRING" size="256"/></ColumnInfo></Dataset><Dataset id="ds_product_request"><ColumnInfo><Column id="categoryId" type="STRING" size="32"/></ColumnInfo></Dataset><Dataset id="dsInput"><ColumnInfo><Column id="supplierName" type="STRING" size="256"/><Column id="contactNumber" type="STRING" size="256"/><Column id="categoryId" type="STRING" size="256"/><Column id="productId" type="STRING" size="256"/><Column id="buyingPrice" type="STRING" size="256"/><Column id="returnPolicy" type="STRING" size="256"/><Column id="imageUrl" type="STRING" size="256"/></ColumnInfo></Dataset><Dataset id="ds_result"><ColumnInfo><Column id="supplierId" type="STRING" size="32"/></ColumnInfo></Dataset><FileDialog id="fd_image" onclose="fd_image_onclose" accept="image/png,image/jpeg"/><FileUpTransfer id="fut_image" onsuccess="fut_image_onsuccess" onerror="fut_image_onerror"/></Objects><Script type="xscript5.1"><![CDATA[
+this.SUPPLIER_API = "http://localhost:8080/supplier";
+this.returnPolicy = "not_taking_return";
+this.imageUrl = "";
+this.hasImage = false;
+this.preparingImage = false;
+this.saving = false;
+
+this.NewSupplier_onload = function(obj:nexacro.Form, e:nexacro.LoadEventInfo)
+{
+    var form = this.div00.form;
+    form.div01_00_00.form.cbo_category.set_innerdataset(this.ds_categories);
+    form.div01_00.form.cbo_product.set_innerdataset(this.ds_products);
+    form.div01_00.form.cbo_product.set_enable(true); 
+    this.fn_selectReturnPolicy("not_taking_return");
+    this.transaction("getCategories", this.SUPPLIER_API + "/categories",
+                     "", "ds_categories=IDDataset", "requestType=categories", "fn_callback");
+};
+
+this.fn_callback = function(serviceId, errorCode, errorMessage)
+{
+    if (errorCode < 0) {
+        this.saving = false;
+        this.div00.form.btn01.set_enable(true);
+        if (serviceId == "getProducts") {
+            this.div00.form.div01_00_00.form.cbo_category.set_enable(true);
+            this.div00.form.div01_00.form.cbo_product.set_enable(true);
+        }
+        this.alert(errorMessage || "Supplier request failed.");
+        return;
+    }
+    if (serviceId == "getCategories") {
+        if (this.ds_categories.getRowCount() == 0) {
+            this.alert("No product categories found. You may still create a supplier without a product.");
+        }
+    } else if (serviceId == "getProducts") {
+        this.div00.form.div01_00_00.form.cbo_category.set_enable(true);
+        this.div00.form.div01_00.form.cbo_product.set_enable(true);
+        if (this.ds_products.getRowCount() == 0) {
+            this.alert("No products found for the selected category.");
+        }
+    } else if (serviceId == "addSupplier") {
+        this.saving = false;
+        this.alert("Supplier added successfully.");
+        this.close(true);
+    }
+};
+
+this.div01_category_onitemchanged = function(obj:nexacro.Combo, e:nexacro.ItemChangeEventInfo)
+{
+    this.ds_products.clearData();
+    var productCombo = this.div00.form.div01_00.form.cbo_product;
+    productCombo.set_value(null);
+    productCombo.set_enable(true);
+    var categoryId = e.postvalue;
+    if (categoryId === null || categoryId === undefined || categoryId === "") return;
+
+    this.ds_product_request.clearData();
+    var row = this.ds_product_request.addRow();
+    this.ds_product_request.setColumn(row, "categoryId", categoryId);
+    obj.set_enable(false);
+    this.transaction("getProducts", this.SUPPLIER_API + "/products",
+                     "dsInput=ds_product_request", "ds_products=IDDataset", "", "fn_callback");
+};
+
+this.fn_selectReturnPolicy = function(value)
+{
+    this.returnPolicy = value;
+    var btnNo = this.div00.form.div02.form.div00.form.btn00;
+    var btnYes = this.div00.form.div02.form.div00.form.btn01;
+    btnNo.set_background(value == "not_taking_return" ? "#1366d9" : "#ffffff");
+    btnNo.set_color(value == "not_taking_return" ? "#ffffff" : "#858d9d");
+    btnYes.set_background(value == "taking_return" ? "#1366d9" : "#ffffff");
+    btnYes.set_color(value == "taking_return" ? "#ffffff" : "#858d9d");
+};
+
+this.btn_not_taking_return_onclick = function(obj:nexacro.Button, e:nexacro.ClickEventInfo)
+{
+    this.fn_selectReturnPolicy("not_taking_return");
+};
+
+this.btn_taking_return_onclick = function(obj:nexacro.Button, e:nexacro.ClickEventInfo)
+{
+    this.fn_selectReturnPolicy("taking_return");
+};
+
+this.div00_btn00_onclick = function(obj:nexacro.Button, e:nexacro.ClickEventInfo)
+{
+    if (!this.saving) this.close(false);
+};
+
+this.fn_trim = function(value)
+{
+    return value === null || value === undefined ? "" : ("" + value).replace(/^\s+|\s+$/g, "");
+};
+
+this.fn_validate = function()
+{
+    var ui = this.div00.form;
+    var name = this.fn_trim(ui.div01.form.edt00.value);
+    var contact = this.fn_trim(ui.div01_00_00_00_00.form.edt00.value);
+    var categoryId = this.fn_trim(ui.div01_00_00.form.cbo_category.value);
+    var productId = this.fn_trim(ui.div01_00.form.cbo_product.value);
+    var buyingPrice = this.fn_trim(ui.div01_00_00_00.form.edt00.value);
+
+    if (!name || name.length > 150) {
+        this.alert("Enter Supplier Name (maximum 150 characters).");
+        ui.div01.form.edt00.setFocus();
+        return false;
+    }
+    if (!contact || contact.length > 50) {
+        this.alert("Enter Contact Number (maximum 50 characters).");
+        ui.div01_00_00_00_00.form.edt00.setFocus();
+        return false;
+    }
+    if (categoryId || productId || buyingPrice) {
+        if (!categoryId || !productId || !buyingPrice) {
+            this.alert("Category, Product and Buying Price must be entered together.");
+            return false;
+        }
+        if (!/^(?:0|[1-9]\d*)(?:\.\d{1,2})?$/.test(buyingPrice) || Number(buyingPrice) <= 0) {
+            this.alert("Buying Price must be a positive number (maximum 2 decimal places).");
+            ui.div01_00_00_00.form.edt00.setFocus();
+            return false;
+        }
+    }
+    return true;
+};
+
+this.fn_fillRequest = function()
+{
+    var ui = this.div00.form;
+    var ds = this.dsInput;
+    ds.clearData();
+    var row = ds.addRow();
+    ds.setColumn(row, "supplierName", this.fn_trim(ui.div01.form.edt00.value));
+    ds.setColumn(row, "contactNumber", this.fn_trim(ui.div01_00_00_00_00.form.edt00.value));
+    ds.setColumn(row, "categoryId", this.fn_trim(ui.div01_00_00.form.cbo_category.value));
+    ds.setColumn(row, "productId", this.fn_trim(ui.div01_00.form.cbo_product.value));
+    ds.setColumn(row, "buyingPrice", this.fn_trim(ui.div01_00_00_00.form.edt00.value));
+    ds.setColumn(row, "returnPolicy", this.returnPolicy);
+    ds.setColumn(row, "imageUrl", this.imageUrl);
+};
+
+this.fn_saveSupplier = function()
+{
+    this.fn_fillRequest();
+    this.transaction("addSupplier", this.SUPPLIER_API + "/add",
+                     "dsInput=dsInput", "ds_result=IDDataset", "", "fn_callback");
+};
+
+this.div00_btn01_onclick = function(obj:nexacro.Button, e:nexacro.ClickEventInfo)
+{
+    if (this.saving || this.preparingImage || !this.fn_validate()) return;
+    this.saving = true;
+    this.div00.form.btn01.set_enable(false);
+    if (this.hasImage && !this.imageUrl) {
+        // Upload image first, then save its URL with the supplier record.
+        this.fut_image.upload(this.SUPPLIER_API + "/upload-image");
+    } else {
+        this.fn_saveSupplier();
+    }
+};
+
+this.fn_browseImage = function(obj, e)
+{
+    if (!this.saving) this.fd_image.open("Supplier image", FileDialog.MULTILOAD);
+};
+
+this.fd_image_onclose = function(obj:nexacro.FileDialog, e:nexacro.FileDialogEventInfo)
+{
+    if (e.virtualfiles && e.virtualfiles.length > 0) {
+        this.fn_prepareImage(e.virtualfiles[0]);
+    }
+};
+
+this.fn_image_ondrop = function(obj, e)
+{
+    if (!this.saving && e.datatype == "file" && e.filelist && e.filelist.length > 0) {
+        this.fn_prepareImage(e.filelist[0]);
+    }
+};
+
+this.fn_prepareImage = function(file)
+{
+    var name = file.filename || "";
+    if (!/\.(jpg|jpeg|png)$/i.test(name)) {
+        this.alert("Only PNG and JPEG images are supported.");
+        return;
+    }
+    this.preparingImage = true;
+    this.hasImage = false;
+    this.imageUrl = "";
+    this.fut_image.clearFileList();
+    this.div00.form.div00.form.sta00.set_text(name);
+    this.div00.form.div00.form.img00.set_image("");
+    file.addEventHandler("onsuccess", this.fn_virtualFileSuccess, this);
+    file.addEventHandler("onerror", this.fn_virtualFileError, this);
+    file.open(null, 1);
+};
+
+this.fn_virtualFileSuccess = function(obj:nexacro.VirtualFile, e:nexacro.VirtualFileEventInfo)
+{
+    if (e.reason == 1) {
+        obj.getFileSize();
+    } else if (e.reason == 9) {
+        this.preparingImage = false;
+        if (e.filesize > 5 * 1024 * 1024 || e.filesize <= 0) {
+            this.div00.form.div00.form.sta00.set_text("Drag image here");
+            this.alert("Image must be smaller than 5 MB and not empty.");
+            return;
+        }
+        this.fut_image.addFile(obj.filename, obj);
+        this.hasImage = true;
+    }
+};
+
+this.fn_virtualFileError = function(obj:nexacro.VirtualFile, e:nexacro.VirtualFileErrorEventInfo)
+{
+    this.preparingImage = false;
+    this.hasImage = false;
+    this.div00.form.div00.form.sta00.set_text("Drag image here");
+    this.alert("Unable to read selected image: " + e.errormsg);
+};
+
+this.fut_image_onsuccess = function(obj:nexacro.FileUpTransfer, e:nexacro.FileUpTransferEventInfo)
+{
+    var url = "";
+    if (e.code >= 0 && e.datasets && e.datasets.length > 0 && e.datasets[0].getRowCount() > 0) {
+        url = e.datasets[0].getColumn(0, "imageUrl");
+    }
+    if (!url) {
+        this.saving = false;
+        this.div00.form.btn01.set_enable(true);
+        this.alert(e.message || "Image uploaded without a valid response.");
+        return;
+    }
+    this.imageUrl = url;
+    this.div00.form.div00.form.img00.set_image(this.SUPPLIER_API.replace(/\/supplier$/, "") + url);
+    this.fn_saveSupplier();
+};
+
+this.fut_image_onerror = function(obj:nexacro.FileUpTransfer, e:nexacro.FileUpTransferErrorEventInfo)
+{
+    this.saving = false;
+    this.div00.form.btn01.set_enable(true);
+    this.alert("Image upload failed: " + e.errormsg);
+};
+
+]]></Script>
+  </Form>
+</FDL>

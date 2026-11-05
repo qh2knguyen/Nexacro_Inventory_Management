@@ -18,12 +18,12 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("dsStatus", this);
-            obj._setContents({"ColumnInfo" : {"Column" : [ {"id" : "code","type" : "STRING","size" : "256"},{"id" : "message","type" : "STRING","size" : "256"}]}});
+            obj._setContents("<ColumnInfo><Column id=\"code\" type=\"STRING\" size=\"256\"/><Column id=\"message\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
 
             obj = new Dataset("dsRegisteredUsers", this);
-            obj._setContents({"ColumnInfo" : {"Column" : [ {"id" : "username","type" : "STRING","size" : "256"},{"id" : "email","type" : "STRING","size" : "256"},{"id" : "password","type" : "STRING","size" : "256"}]}});
+            obj._setContents("<ColumnInfo><Column id=\"username\" type=\"STRING\" size=\"256\"/><Column id=\"email\" type=\"STRING\" size=\"256\"/><Column id=\"password\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
             
             // UI Components Initialize

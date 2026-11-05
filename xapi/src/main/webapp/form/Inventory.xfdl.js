@@ -19,27 +19,27 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("ds_employees", this);
-            obj._setContents({"ColumnInfo" : {"Column" : [ {"id" : "empId","type" : "STRING","size" : "256"},{"id" : "empName","type" : "STRING","size" : "256"},{"id" : "typeCd","type" : "STRING","size" : "256"},{"id" : "posCd","type" : "STRING","size" : "256"},{"id" : "empRank","type" : "STRING","size" : "256"},{"id" : "empCoeSalary","type" : "STRING","size" : "256"},{"id" : "degCd","type" : "STRING","size" : "256"},{"id" : "empCoeLimit","type" : "STRING","size" : "256"},{"id" : "empCoePos","type" : "STRING","size" : "256"},{"id" : "empCoeRes","type" : "STRING","size" : "256"},{"id" : "empAllCoe","type" : "STRING","size" : "256"},{"id" : "empNextPro","type" : "STRING","size" : "256"},{"id" : "noDecision","type" : "STRING","size" : "256"},{"id" : "status","type" : "STRING","size" : "256"},{"id" : "dateDecision","type" : "STRING","size" : "256"},{"id" : "totalCount","type" : "STRING","size" : "256"},{"id" : "chkCol","type" : "STRING","size" : "256"}]}});
+            obj._setContents("<ColumnInfo><Column id=\"empId\" type=\"STRING\" size=\"256\"/><Column id=\"empName\" type=\"STRING\" size=\"256\"/><Column id=\"typeCd\" type=\"STRING\" size=\"256\"/><Column id=\"posCd\" type=\"STRING\" size=\"256\"/><Column id=\"empRank\" type=\"STRING\" size=\"256\"/><Column id=\"empCoeSalary\" type=\"STRING\" size=\"256\"/><Column id=\"degCd\" type=\"STRING\" size=\"256\"/><Column id=\"empCoeLimit\" type=\"STRING\" size=\"256\"/><Column id=\"empCoePos\" type=\"STRING\" size=\"256\"/><Column id=\"empCoeRes\" type=\"STRING\" size=\"256\"/><Column id=\"empAllCoe\" type=\"STRING\" size=\"256\"/><Column id=\"empNextPro\" type=\"STRING\" size=\"256\"/><Column id=\"noDecision\" type=\"STRING\" size=\"256\"/><Column id=\"status\" type=\"STRING\" size=\"256\"/><Column id=\"dateDecision\" type=\"STRING\" size=\"256\"/><Column id=\"totalCount\" type=\"STRING\" size=\"256\"/><Column id=\"chkCol\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
 
             obj = new Dataset("ds_status", this);
-            obj._setContents({"ColumnInfo" : {"Column" : [ {"id" : "ID","type" : "STRING","size" : "256"},{"id" : "VALUE","type" : "STRING","size" : "256"}]},"Rows" : [{"ID" : "ALL","VALUE" : "All"},{"ID" : "ACTIVE","VALUE" : "Active"},{"ID" : "INACTIVE","VALUE" : "Inactive"},{"ID" : "PENDING","VALUE" : "Pending"}]});
+            obj._setContents("<ColumnInfo><Column id=\"ID\" type=\"STRING\" size=\"256\"/><Column id=\"VALUE\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"ID\">ALL</Col><Col id=\"VALUE\">All</Col></Row><Row><Col id=\"ID\">ACTIVE</Col><Col id=\"VALUE\">Active</Col></Row><Row><Col id=\"ID\">INACTIVE</Col><Col id=\"VALUE\">Inactive</Col></Row><Row><Col id=\"ID\">PENDING</Col><Col id=\"VALUE\">Pending</Col></Row></Rows>");
             this.addChild(obj.name, obj);
 
 
             obj = new Dataset("ds_emp_search", this);
-            obj._setContents({"ColumnInfo" : {"Column" : [ {"id" : "empName","type" : "STRING","size" : "256"},{"id" : "empCoeSalaryMin","type" : "STRING","size" : "256"},{"id" : "empCoeSalaryMax","type" : "STRING","size" : "256"},{"id" : "dateDecisionMin","type" : "STRING","size" : "256"},{"id" : "dateDecisionMax","type" : "STRING","size" : "256"},{"id" : "empRankMin","type" : "STRING","size" : "256"},{"id" : "empRankMax","type" : "STRING","size" : "256"},{"id" : "empAllCoeMin","type" : "STRING","size" : "256"},{"id" : "empAllCoeMax","type" : "STRING","size" : "256"},{"id" : "status","type" : "STRING","size" : "256"}]},"Rows" : [{"status" : "ALL"}]});
+            obj._setContents("<ColumnInfo><Column id=\"empName\" type=\"STRING\" size=\"256\"/><Column id=\"empCoeSalaryMin\" type=\"STRING\" size=\"256\"/><Column id=\"empCoeSalaryMax\" type=\"STRING\" size=\"256\"/><Column id=\"dateDecisionMin\" type=\"STRING\" size=\"256\"/><Column id=\"dateDecisionMax\" type=\"STRING\" size=\"256\"/><Column id=\"empRankMin\" type=\"STRING\" size=\"256\"/><Column id=\"empRankMax\" type=\"STRING\" size=\"256\"/><Column id=\"empAllCoeMin\" type=\"STRING\" size=\"256\"/><Column id=\"empAllCoeMax\" type=\"STRING\" size=\"256\"/><Column id=\"status\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"status\">ALL</Col></Row></Rows>");
             this.addChild(obj.name, obj);
 
 
             obj = new Dataset("ds_del", this);
-            obj._setContents({"ColumnInfo" : {"Column" : [ {"id" : "empId","type" : "STRING","size" : "256"}]}});
+            obj._setContents("<ColumnInfo><Column id=\"empId\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
 
 
             obj = new Dataset("ds_inventory", this);
-            obj._setContents({"ColumnInfo" : {"Column" : [ {"id" : "id","type" : "STRING","size" : "256"},{"id" : "productCode","type" : "STRING","size" : "256"},{"id" : "name","type" : "STRING","size" : "256"},{"id" : "unit","type" : "STRING","size" : "256"},{"id" : "quantity","type" : "STRING","size" : "256"},{"id" : "buyingPrice","type" : "STRING","size" : "256"},{"id" : "thresholdValue","type" : "STRING","size" : "256"},{"id" : "expiryDate","type" : "STRING","size" : "256"},{"id" : "availability","type" : "STRING","size" : "256"},{"id" : "chkCol","type" : "STRING","size" : "256"}]}});
+            obj._setContents("<ColumnInfo><Column id=\"id\" type=\"STRING\" size=\"256\"/><Column id=\"productCode\" type=\"STRING\" size=\"256\"/><Column id=\"name\" type=\"STRING\" size=\"256\"/><Column id=\"unit\" type=\"STRING\" size=\"256\"/><Column id=\"quantity\" type=\"STRING\" size=\"256\"/><Column id=\"buyingPrice\" type=\"STRING\" size=\"256\"/><Column id=\"thresholdValue\" type=\"STRING\" size=\"256\"/><Column id=\"expiryDate\" type=\"STRING\" size=\"256\"/><Column id=\"availability\" type=\"STRING\" size=\"256\"/><Column id=\"chkCol\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
             
             // UI Components Initialize

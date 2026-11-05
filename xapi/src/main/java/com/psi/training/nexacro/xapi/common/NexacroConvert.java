@@ -3,6 +3,7 @@ package com.psi.training.nexacro.xapi.common;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.nexacro.java.xapi.data.DataSet;
 import com.nexacro.java.xapi.data.PlatformData;
+import com.nexacro.java.xapi.data.Variable;
 import com.nexacro.java.xapi.data.VariableList;
 import com.nexacro.java.xapi.tx.HttpPlatformRequest;
 import com.psi.training.nexacro.xapi.entity.entity.SearchListRequestData;
@@ -17,24 +18,28 @@ import java.util.Map;
 
 public class NexacroConvert {
 
+    private static final int DEFAULT_PAGE = 1;
+    private static final int DEFAULT_PAGE_SIZE = 10;
+    private static final int MAX_PAGE_SIZE = 500;
+
     public static SearchListRequestData getRequestSearchData(HttpServletRequest request, String dataSetData) {
         try {
             SearchListRequestData requestData = new SearchListRequestData();
             DataSet ds = null;
-            
+
             InputStream inputStream = request.getInputStream();
             HttpPlatformRequest httpPlatformRequest = new HttpPlatformRequest(inputStream);
             httpPlatformRequest.receiveData();
             PlatformData data = httpPlatformRequest.getData();
-            
-            if (dataSetData != "") {
+
+            if (dataSetData != null && !dataSetData.isEmpty()) {
                 ds = data.getDataSetList().get(dataSetData);
             }
-            
+
             VariableList variableList = data.getVariableList();
 
-            int page = Integer.parseInt(variableList.get("page").getString());
-            int pageSize = Integer.parseInt(variableList.get("page_size").getString());
+            int page = getPositiveInt(variableList, "page", DEFAULT_PAGE);
+            int pageSize = Math.min(getPositiveInt(variableList, "page_size", DEFAULT_PAGE_SIZE), MAX_PAGE_SIZE);
 
             int limit = pageSize;
             int offset = (page - 1) * pageSize;
@@ -44,7 +49,24 @@ public class NexacroConvert {
             requestData.setDsInput(ds);
             return requestData;
         } catch (Exception e) {
-            return null;
+            throw new IllegalStateException("Cannot parse Nexacro search request", e);
+        }
+    }
+
+    private static int getPositiveInt(VariableList variableList, String name, int defaultValue) {
+        Variable variable = variableList.get(name);
+        if (variable == null) {
+            return defaultValue;
+        }
+        String value = variable.getString();
+        if (value == null || value.trim().isEmpty()) {
+            return defaultValue;
+        }
+        try {
+            int number = Integer.parseInt(value.trim());
+            return number > 0 ? number : defaultValue;
+        } catch (NumberFormatException e) {
+            return defaultValue;
         }
     }
 

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <FDL version="2.1">
   <Form id="Suppliers" width="1546" height="845" titletext="New Form" background="#F0F1F3" onload="Suppliers_onload">
     <Layouts>
@@ -8,7 +8,7 @@
             <Layout>
               <Static id="sta_employees" taborder="0" text="Suppliers" left="21" top="28" width="120" height="30" font="normal 500 20px/30px &quot;Segoe UI&quot;"/>
               <Button id="btn_add_supplier" taborder="1" text="Add Supplier" top="19" width="118" height="40" color="#ffffff" font="normal 500 14px/20px &quot;Segoe UI&quot;" background="#1366D9" borderRadius="4px" right="283" onclick="div_products_btn_add_supplier_onclick"/>
-              <Grid id="grd_suppliers" taborder="2" left="21" top="68" right="21" autofittype="col" border="0px none" nodatatext="No data found" selecttype="row" onheadclick="div_employees_grd_employees_onheadclick" oncelldblclick="div_employees_grd_employees_oncelldblclick" oncellclick="div_employees_grd_employees_oncellclick" bottom="68" binddataset="ds_suppliers">
+              <Grid id="grd_suppliers" taborder="2" left="21" top="68" right="21" autofittype="col" border="0px none" nodatatext="No data found" selecttype="row" bottom="68" binddataset="ds_suppliers">
                 <Formats>
                   <Format id="default">
                     <Columns>
@@ -66,10 +66,10 @@
         </ColumnInfo>
       </Dataset>
     </Objects>
-    <Script type="xscript5.1"><![CDATA[
+    <Script type="xscript5.1">
 this.currentPage = 1;
 this.recordsPerPage = 9;
-this.totalRecords = 0;    
+this.totalRecords = 0;
 this.totalPages = 0;
 
 this.div_products_btn_add_supplier_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
@@ -81,21 +81,39 @@ this.div_products_btn_add_supplier_onclick = function(obj:nexacro.Button,e:nexac
 
 this.Suppliers_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
 {
+	this.currentPage = 1;
+	this.fn_loadPage("getSupplierList");
+};
+
+this.fn_loadPage = function(svcId) {
+	this.div_suppliers.form.btn_previous.set_enable(false);
+	this.div_suppliers.form.btn_next.set_enable(false);
+
 	this.transaction(
-		"getSupplierList",
+		svcId,
 		"http://localhost:8080/supplier",
 		"",
 		"ds_suppliers=IDDataset",
-		"page=1 page_size=" + this.recordsPerPage,
+		"page=" + this.currentPage + " page_size=" + this.recordsPerPage,
 		"fn_callback"
-	)
+	);
 };
 
 this.fn_callback = function(serviceId, errorCode, errorMessage) {
-	if(errorCode >= 0) {
-		if(serviceId == "getSupplierList" || serviceId == "searchSupplier") {
-			this.currentPage = 1;
-			this.totalRecords = this.ds_suppliers.getColumn(0, "totalRows");
+	if(errorCode &gt;= 0) {
+		if(serviceId == "getSupplierList" || serviceId == "getSupplierPage" || serviceId == "searchSupplier") {
+			if (this.ds_suppliers.getRowCount() == 0 &amp;&amp; this.currentPage &gt; 1) {
+				this.currentPage = 1;
+				this.fn_loadPage("getSupplierPage");
+				return;
+			}
+
+			var total = 0;
+			if (this.ds_suppliers.getRowCount() &gt; 0) {
+				total = parseInt(this.ds_suppliers.getColumn(0, "totalRows"), 10);
+				if (isNaN(total)) total = 0;
+			}
+			this.totalRecords = total;
 			this.fn_calculatePagination();
 			return;
 		}
@@ -121,63 +139,58 @@ this.fn_callback = function(serviceId, errorCode, errorMessage) {
 	}
 	else {
 		alert("Error");
+		this.fn_setButtonStatus();
 		return;
 	}
 }
 
 this.fn_calculatePagination = function() {
-    this.totalPages = Math.ceil(this.totalRecords / this.recordsPerPage);
-    if (this.currentPage > this.totalPages && this.totalPages > 0) {
-        this.currentPage = this.totalPages;
-    } else if (this.totalPages === 0) {
-        this.currentPage = 0;
-    }
+	this.totalPages = Math.ceil(this.totalRecords / this.recordsPerPage);
+	if (this.totalPages === 0) {
+		this.currentPage = 0;
+	} else if (this.currentPage &gt; this.totalPages) {
+		this.currentPage = this.totalPages;
+	}
 
-	this.div_suppliers.form.sta_pageText.text = "Page " + this.currentPage + " of " + this.totalPages
-    this.fn_setButtonStatus();
+	this.div_suppliers.form.sta_pageText.set_text("Page " + this.currentPage + " of " + this.totalPages);
+	this.fn_setButtonStatus();
 };
 
 this.fn_displayPageData = function() {
-    this.ds_suppliers.clearData();
-
-    if (this.totalRecords === 0) {
-        return;
-    }
-	
-	this.transaction(
-		"getSupplierList",
-		"http://localhost:8080/supplier",
-		"",
-		"ds_suppliers=IDDataset",
-		"page=" + this.currentPage + " page_size=" + this.recordsPerPage,
-		"fn_callback"
-	)
-    
-    this.div_suppliers.form.sta_pageText.text = "Page " + this.currentPage + " of " + this.totalPages
-    this.fn_setButtonStatus();
+	this.fn_loadPage("getSupplierPage");
 };
 
 this.fn_setButtonStatus = function() {
-    var bEnable = (this.totalRecords > 0);
-    this.div_suppliers.form.btn_previous.set_enable(bEnable && this.currentPage > 1);
-    this.div_suppliers.form.btn_next.set_enable(bEnable && this.currentPage < this.totalPages);
+	var bEnable = (this.totalRecords &gt; 0);
+	this.div_suppliers.form.btn_previous.set_enable(bEnable &amp;&amp; this.currentPage &gt; 1);
+	this.div_suppliers.form.btn_next.set_enable(bEnable &amp;&amp; this.currentPage &lt; this.totalPages);
 };
 
 this.div_suppliers_btn_previous_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
-	if (this.currentPage > 1) {
-        this.currentPage--;
-        this.fn_displayPageData();
-    }
+	if (this.currentPage &gt; 1) {
+		this.currentPage--;
+		this.fn_displayPageData();
+	}
 };
 
 this.div_suppliers_btn_next_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
-	if (this.currentPage < this.totalPages) {
-        this.currentPage++;
-        this.fn_displayPageData();
+	if (this.currentPage &lt; this.totalPages) {
+		this.currentPage++;
+		this.fn_displayPageData();
+	}
+};
+
+// Called by gfnOpenPopup when the NewSupplier popup closes.
+this.fn_popup_callback = function(popupId, returnValue)
+{
+    if (popupId == "addSupplierForm" &amp;&amp;
+        (returnValue === true || returnValue === "true")) {
+        this.currentPage = 1;
+        this.fn_loadPage("getSupplierList");
     }
 };
-]]></Script>
+</Script>
   </Form>
 </FDL>

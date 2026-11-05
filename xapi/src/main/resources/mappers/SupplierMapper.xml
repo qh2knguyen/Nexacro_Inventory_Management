@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.psi.training.nexacro.xapi.api.mapper.SupplierMapper" >
 		<select id="getSuppliers"
-		parameterType="com.psi.training.nexacro.xapi.entity.entity.EmployeeSearchEntity"
+		parameterType="com.psi.training.nexacro.xapi.entity.entity.SupplierSearchEntity"
 		resultType="com.psi.training.nexacro.xapi.entity.entity.SupplierEntity">
 	    SELECT  supplier_id as supplierId,
         supplier_name as supplierName,
@@ -16,12 +16,52 @@
 			WHERE (CAST(#{search} AS text) IS NULL
 							OR supplier_name ILIKE '%' || CAST(#{search} AS text) || '%'
 							OR product       ILIKE '%' || CAST(#{search} AS text) || '%')
-				AND (CAST(#{return_policy} AS text) IS NULL
-							OR CAST(return_policy AS text) = CAST(#{return_policy} AS text))
-				AND (CAST(#{only_on_the_way} AS boolean) IS NOT TRUE
+				AND (CAST(#{returnPolicy} AS text) IS NULL
+							OR CAST(return_policy AS text) = CAST(#{returnPolicy} AS text))
+				AND (CAST(#{onlyOnTheWay} AS boolean) IS NOT TRUE
 							OR COALESCE(on_the_way, 0) &gt; 0)
-			ORDER BY supplier_name, product  
+			ORDER BY supplier_name, product, supplier_id
 			LIMIT #{limit}
 			OFFSET #{offset};
     </select>
+
+    <select id="getCategories"
+            resultType="com.psi.training.nexacro.xapi.entity.entity.SupplierOptionEntity">
+        SELECT id, name FROM categories ORDER BY name, id
+    </select>
+
+    <select id="getProductsByCategory"
+            resultType="com.psi.training.nexacro.xapi.entity.entity.SupplierOptionEntity">
+        SELECT id, name, category_id AS "categoryId", product_code AS "productCode"
+        FROM products
+        WHERE category_id = #{categoryId}
+        ORDER BY name, id
+    </select>
+
+    <select id="isProductInCategory" resultType="boolean">
+        SELECT EXISTS (
+            SELECT 1 FROM products
+            WHERE id = #{productId} AND category_id = #{categoryId}
+        )
+    </select>
+
+    <insert id="insertSupplier"
+            parameterType="com.psi.training.nexacro.xapi.entity.entity.SupplierCreateEntity"
+            useGeneratedKeys="true" keyProperty="supplierId" keyColumn="id">
+        INSERT INTO suppliers (name, contact_number, email, image_url, return_policy)
+        VALUES (#{supplierName}, #{contactNumber}, #{email}, #{imageUrl},
+                CAST(#{returnPolicy} AS return_policy))
+    </insert>
+
+    <insert id="insertProductSupplier"
+            parameterType="com.psi.training.nexacro.xapi.entity.entity.SupplierCreateEntity">
+        INSERT INTO product_suppliers (product_id, supplier_id, buying_price, is_primary)
+        VALUES (
+            #{productId}, #{supplierId}, #{buyingPrice},
+            NOT EXISTS (
+                SELECT 1 FROM product_suppliers
+                WHERE product_id = #{productId} AND is_primary = TRUE
+            )
+        )
+    </insert>
 </mapper>

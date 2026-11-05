@@ -19,7 +19,7 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("ds_suppliers", this);
-            obj._setContents({"ColumnInfo" : {"Column" : [ {"id" : "supplierId","type" : "STRING","size" : "256"},{"id" : "supplierName","type" : "STRING","size" : "256"},{"id" : "product","type" : "STRING","size" : "256"},{"id" : "contactNumber","type" : "STRING","size" : "256"},{"id" : "email","type" : "STRING","size" : "256"},{"id" : "returnPolicy","type" : "STRING","size" : "256"},{"id" : "onTheWay","type" : "STRING","size" : "256"},{"id" : "totalRows","type" : "STRING","size" : "256"}]}});
+            obj._setContents("<ColumnInfo><Column id=\"supplierId\" type=\"STRING\" size=\"256\"/><Column id=\"supplierName\" type=\"STRING\" size=\"256\"/><Column id=\"product\" type=\"STRING\" size=\"256\"/><Column id=\"contactNumber\" type=\"STRING\" size=\"256\"/><Column id=\"email\" type=\"STRING\" size=\"256\"/><Column id=\"returnPolicy\" type=\"STRING\" size=\"256\"/><Column id=\"onTheWay\" type=\"STRING\" size=\"256\"/><Column id=\"totalRows\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
@@ -130,21 +130,39 @@
 
         this.Suppliers_onload = function(obj,e)
         {
+        	this.currentPage = 1;
+        	this.fn_loadPage("getSupplierList");
+        };
+
+        this.fn_loadPage = function(svcId) {
+        	this.div_suppliers.form.btn_previous.set_enable(false);
+        	this.div_suppliers.form.btn_next.set_enable(false);
+
         	this.transaction(
-        		"getSupplierList",
+        		svcId,
         		"http://localhost:8080/supplier",
         		"",
         		"ds_suppliers=IDDataset",
-        		"page=1 page_size=" + this.recordsPerPage,
+        		"page=" + this.currentPage + " page_size=" + this.recordsPerPage,
         		"fn_callback"
-        	)
+        	);
         };
 
         this.fn_callback = function(serviceId, errorCode, errorMessage) {
         	if(errorCode >= 0) {
-        		if(serviceId == "getSupplierList" || serviceId == "searchSupplier") {
-        			this.currentPage = 1;
-        			this.totalRecords = this.ds_suppliers.getColumn(0, "totalRows");
+        		if(serviceId == "getSupplierList" || serviceId == "getSupplierPage" || serviceId == "searchSupplier") {
+        			if (this.ds_suppliers.getRowCount() == 0 && this.currentPage > 1) {
+        				this.currentPage = 1;
+        				this.fn_loadPage("getSupplierPage");
+        				return;
+        			}
+
+        			var total = 0;
+        			if (this.ds_suppliers.getRowCount() > 0) {
+        				total = parseInt(this.ds_suppliers.getColumn(0, "totalRows"), 10);
+        				if (isNaN(total)) total = 0;
+        			}
+        			this.totalRecords = total;
         			this.fn_calculatePagination();
         			return;
         		}
@@ -170,61 +188,56 @@
         	}
         	else {
         		alert("Error");
+        		this.fn_setButtonStatus();
         		return;
         	}
         }
 
         this.fn_calculatePagination = function() {
-            this.totalPages = Math.ceil(this.totalRecords / this.recordsPerPage);
-            if (this.currentPage > this.totalPages && this.totalPages > 0) {
-                this.currentPage = this.totalPages;
-            } else if (this.totalPages === 0) {
-                this.currentPage = 0;
-            }
+        	this.totalPages = Math.ceil(this.totalRecords / this.recordsPerPage);
+        	if (this.totalPages === 0) {
+        		this.currentPage = 0;
+        	} else if (this.currentPage > this.totalPages) {
+        		this.currentPage = this.totalPages;
+        	}
 
-        	this.div_suppliers.form.sta_pageText.text = "Page " + this.currentPage + " of " + this.totalPages
-            this.fn_setButtonStatus();
+        	this.div_suppliers.form.sta_pageText.set_text("Page " + this.currentPage + " of " + this.totalPages);
+        	this.fn_setButtonStatus();
         };
 
         this.fn_displayPageData = function() {
-            this.ds_suppliers.clearData();
-
-            if (this.totalRecords === 0) {
-                return;
-            }
-
-        	this.transaction(
-        		"getSupplierList",
-        		"http://localhost:8080/supplier",
-        		"",
-        		"ds_suppliers=IDDataset",
-        		"page=" + this.currentPage + " page_size=" + this.recordsPerPage,
-        		"fn_callback"
-        	)
-
-            this.div_suppliers.form.sta_pageText.text = "Page " + this.currentPage + " of " + this.totalPages
-            this.fn_setButtonStatus();
+        	this.fn_loadPage("getSupplierPage");
         };
 
         this.fn_setButtonStatus = function() {
-            var bEnable = (this.totalRecords > 0);
-            this.div_suppliers.form.btn_previous.set_enable(bEnable && this.currentPage > 1);
-            this.div_suppliers.form.btn_next.set_enable(bEnable && this.currentPage < this.totalPages);
+        	var bEnable = (this.totalRecords > 0);
+        	this.div_suppliers.form.btn_previous.set_enable(bEnable && this.currentPage > 1);
+        	this.div_suppliers.form.btn_next.set_enable(bEnable && this.currentPage < this.totalPages);
         };
 
         this.div_suppliers_btn_previous_onclick = function(obj,e)
         {
         	if (this.currentPage > 1) {
-                this.currentPage--;
-                this.fn_displayPageData();
-            }
+        		this.currentPage--;
+        		this.fn_displayPageData();
+        	}
         };
 
         this.div_suppliers_btn_next_onclick = function(obj,e)
         {
         	if (this.currentPage < this.totalPages) {
-                this.currentPage++;
-                this.fn_displayPageData();
+        		this.currentPage++;
+        		this.fn_displayPageData();
+        	}
+        };
+
+        // Called by gfnOpenPopup when the NewSupplier popup closes.
+        this.fn_popup_callback = function(popupId, returnValue)
+        {
+            if (popupId == "addSupplierForm" &&
+                (returnValue === true || returnValue === "true")) {
+                this.currentPage = 1;
+                this.fn_loadPage("getSupplierList");
             }
         };
 
@@ -235,9 +248,6 @@
         {
             this.addEventHandler("onload",this.Suppliers_onload,this);
             this.div_suppliers.form.btn_add_supplier.addEventHandler("onclick",this.div_products_btn_add_supplier_onclick,this);
-            this.div_suppliers.form.grd_suppliers.addEventHandler("onheadclick",this.div_employees_grd_employees_onheadclick,this);
-            this.div_suppliers.form.grd_suppliers.addEventHandler("oncelldblclick",this.div_employees_grd_employees_oncelldblclick,this);
-            this.div_suppliers.form.grd_suppliers.addEventHandler("oncellclick",this.div_employees_grd_employees_oncellclick,this);
             this.div_suppliers.form.btn_previous.addEventHandler("onclick",this.div_suppliers_btn_previous_onclick,this);
             this.div_suppliers.form.btn_next.addEventHandler("onclick",this.div_suppliers_btn_next_onclick,this);
         };

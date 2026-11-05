@@ -1,6 +1,6 @@
 ﻿{
   "name": "MobileComp",
-  "version": "24.0.0.1003",
+  "version": "24.0.0.600",
   "description": "Nexacro N Unified Framework Library",
   "license": "",
   "scripts": [
@@ -35,11 +35,7 @@
     "MobileComp/metainfo/DatePickerGroupControl.info",
     "MobileComp/metainfo/PickerHeadLineControl.info",
     "MobileComp/metainfo/DateRangePicker.info",
-    "MobileComp/metainfo/PopupDateRangePicker.info",
-    "MobileComp/metainfo/SpinField.info",
-    "MobileComp/metainfo/SpinFieldBoxControl.info",
-    "MobileComp/metainfo/SelectField.info",
-    "MobileComp/metainfo/SelectFieldBoxControl.info"
+    "MobileComp/metainfo/PopupDateRangePicker.info"
   ],
   "designscripts": [
     "MobileComp/Design/DesignMobileCompBase.js",
@@ -47,8 +43,6 @@
     "MobileComp/Design/DesignMultiLineTextField.js",
     "MobileComp/Design/DesignDateField.js",
     "MobileComp/Design/DesignDateRangePicker.js",
-    "MobileComp/Design/DesignPopupDateRangePicker.js",
-    "MobileComp/Design/DesignSpinField.js",
-    "MobileComp/Design/DesignSelectField.js"
+    "MobileComp/Design/DesignPopupDateRangePicker.js"
   ]
 }

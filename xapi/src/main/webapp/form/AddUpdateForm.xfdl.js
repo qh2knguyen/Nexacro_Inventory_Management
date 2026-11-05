@@ -18,27 +18,27 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("ds_status", this);
-            obj._setContents({"ColumnInfo" : {"Column" : [ {"id" : "ID","type" : "STRING","size" : "256"},{"id" : "VALUE","type" : "STRING","size" : "256"}]},"Rows" : [{"ID" : "ACTIVE","VALUE" : "Active"},{"ID" : "INACTIVE","VALUE" : "Inactive"},{"ID" : "PENDING","VALUE" : "Pending"}]});
+            obj._setContents("<ColumnInfo><Column id=\"ID\" type=\"STRING\" size=\"256\"/><Column id=\"VALUE\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"ID\">ACTIVE</Col><Col id=\"VALUE\">Active</Col></Row><Row><Col id=\"ID\">INACTIVE</Col><Col id=\"VALUE\">Inactive</Col></Row><Row><Col id=\"ID\">PENDING</Col><Col id=\"VALUE\">Pending</Col></Row></Rows>");
             this.addChild(obj.name, obj);
 
 
             obj = new Dataset("ds_type_cd", this);
-            obj._setContents({"ColumnInfo" : {"Column" : [ {"id" : "ID","type" : "STRING","size" : "256"},{"id" : "VALUE","type" : "STRING","size" : "256"}]},"Rows" : [{"ID" : "T01","VALUE" : "T01"},{"ID" : "T02","VALUE" : "T02"},{"ID" : "T03","VALUE" : "T03"}]});
+            obj._setContents("<ColumnInfo><Column id=\"ID\" type=\"STRING\" size=\"256\"/><Column id=\"VALUE\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"ID\">T01</Col><Col id=\"VALUE\">T01</Col></Row><Row><Col id=\"ID\">T02</Col><Col id=\"VALUE\">T02</Col></Row><Row><Col id=\"ID\">T03</Col><Col id=\"VALUE\">T03</Col></Row></Rows>");
             this.addChild(obj.name, obj);
 
 
             obj = new Dataset("ds_pos_cd", this);
-            obj._setContents({"ColumnInfo" : {"Column" : [ {"id" : "ID","type" : "STRING","size" : "256"},{"id" : "VALUE","type" : "STRING","size" : "256"}]},"Rows" : [{"ID" : "P01","VALUE" : "P01"},{"ID" : "P02","VALUE" : "P02"},{"ID" : "P03","VALUE" : "P03"}]});
+            obj._setContents("<ColumnInfo><Column id=\"ID\" type=\"STRING\" size=\"256\"/><Column id=\"VALUE\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"ID\">P01</Col><Col id=\"VALUE\">P01</Col></Row><Row><Col id=\"ID\">P02</Col><Col id=\"VALUE\">P02</Col></Row><Row><Col id=\"ID\">P03</Col><Col id=\"VALUE\">P03</Col></Row></Rows>");
             this.addChild(obj.name, obj);
 
 
             obj = new Dataset("ds_deg_cd", this);
-            obj._setContents({"ColumnInfo" : {"Column" : [ {"id" : "ID","type" : "STRING","size" : "256"},{"id" : "VALUE","type" : "STRING","size" : "256"}]},"Rows" : [{"ID" : "D01","VALUE" : "D01"},{"ID" : "D02","VALUE" : "D02"},{"ID" : "D03","VALUE" : "D03"},{"ID" : "D04","VALUE" : "D04"}]});
+            obj._setContents("<ColumnInfo><Column id=\"ID\" type=\"STRING\" size=\"256\"/><Column id=\"VALUE\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"ID\">D01</Col><Col id=\"VALUE\">D01</Col></Row><Row><Col id=\"ID\">D02</Col><Col id=\"VALUE\">D02</Col></Row><Row><Col id=\"ID\">D03</Col><Col id=\"VALUE\">D03</Col></Row><Row><Col id=\"ID\">D04</Col><Col id=\"VALUE\">D04</Col></Row></Rows>");
             this.addChild(obj.name, obj);
 
 
             obj = new Dataset("ds_rank", this);
-            obj._setContents({"ColumnInfo" : {"Column" : [ {"id" : "ID","type" : "STRING","size" : "256"},{"id" : "VALUE","type" : "STRING","size" : "256"}]},"Rows" : [{"ID" : "1","VALUE" : "1"},{"ID" : "2","VALUE" : "2"},{"ID" : "3","VALUE" : "3"},{"ID" : "4","VALUE" : "4"},{"ID" : "5","VALUE" : "5"}]});
+            obj._setContents("<ColumnInfo><Column id=\"ID\" type=\"STRING\" size=\"256\"/><Column id=\"VALUE\" type=\"STRING\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"ID\">1</Col><Col id=\"VALUE\">1</Col></Row><Row><Col id=\"ID\">2</Col><Col id=\"VALUE\">2</Col></Row><Row><Col id=\"ID\">3</Col><Col id=\"VALUE\">3</Col></Row><Row><Col id=\"ID\">4</Col><Col id=\"VALUE\">4</Col></Row><Row><Col id=\"ID\">5</Col><Col id=\"VALUE\">5</Col></Row></Rows>");
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
