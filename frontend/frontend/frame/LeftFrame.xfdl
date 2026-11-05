@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="LeftFrame" width="373" height="945" titletext="Side bar" borderRadius="0px 8px 8px 0px" border="0px none,1px solid #f0f1f3,0px none,0px none">
+    <Layouts>
+      <Layout height="945" mobileorientation="landscape" width="373">
+        <Div id="div_sidebar" taborder="0" text="div00" left="32" top="24" width="309" bottom="24">
+          <Layouts>
+            <Layout>
+              <Div id="div_sidebar_header" taborder="0" left="0" top="0" width="100%" height="56">
+                <Layouts>
+                  <Layout>
+                    <Div id="div00" taborder="0" left="16" top="4" height="48" right="16">
+                      <Layouts>
+                        <Layout>
+                          <ImageViewer id="img_logo" taborder="0" left="0" top="0" width="48" height="48" image="url('theme://images/logo.png')"/>
+                          <Static id="sta_kanban" taborder="1" text="KANBAN" left="64" top="0" width="120" font="normal 600 24px/30px &quot;Segoe UI&quot;" bottom="0" color="#1570ef"/>
+                        </Layout>
+                      </Layouts>
+                    </Div>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="div_menu" taborder="1" left="0" top="88" width="100%" bottom="0">
+                <Layouts>
+                  <Layout>
+                    <ListView id="lst_menu" taborder="0" left="21" top="8" right="21" binddataset="ds_menu" border="0px none" oncellclick="div_sidebar_div_menu_lst_menu_oncellclick" bottom="0">
+                      <Formats>
+                        <Format id="default">
+                          <Band id="body" width="100%" height="68" border="0px none">
+                            <Cell id="cell_icon" left="0" top="22" width="24" height="24" displaytype="imagecontrol" font="normal 500 16px/24px &quot;Segoe UI&quot;" text="bind:MENU_ICON" imagestretch="fit"/>
+                            <Cell id="cell_name" left="45" top="0" bottom="0" right="35" text="bind:MENU_CAPTION" font="normal 500 16px/24px &quot;Segoe UI&quot;" cssclass="expr:IS_SELECTED == &quot;true&quot; ? &quot;SelectedTab&quot; : &quot;&quot;"/>
+                          </Band>
+                        </Format>
+                      </Formats>
+                    </ListView>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_menu">
+        <ColumnInfo>
+          <Column id="MENU_ID" type="STRING" size="256"/>
+          <Column id="MENU_ICON" type="STRING" size="256"/>
+          <Column id="MENU_CAPTION" type="STRING" size="256"/>
+          <Column id="MENU_URL" type="STRING" size="256"/>
+          <Column id="IS_SELECTED" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="MENU_ID">menu01</Col>
+            <Col id="MENU_CAPTION">Dashboard</Col>
+            <Col id="MENU_ICON">theme://images/Home.png</Col>
+            <Col id="MENU_URL">form::Dashboard.xfdl</Col>
+            <Col id="IS_SELECTED">true</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">menu02</Col>
+            <Col id="MENU_CAPTION">Inventory</Col>
+            <Col id="MENU_ICON">theme://images/Inventory.png</Col>
+            <Col id="MENU_URL">form::Inventory.xfdl</Col>
+            <Col id="IS_SELECTED">false</Col>
+          </Row>
+          <Row>
+            <Col id="MENU_ID">menu03</Col>
+            <Col id="MENU_ICON">theme://images/Suppliers.png</Col>
+            <Col id="MENU_CAPTION">Suppliers</Col>
+            <Col id="MENU_URL">form::Suppliers.xfdl</Col>
+            <Col id="IS_SELECTED">false</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[
+this.div_sidebar_div_menu_lst_menu_oncellclick = function(obj:nexacro.ListView,e:nexacro.ListViewClickEventInfo)
+{
+    var objApp = nexacro.getApplication();
+    var menuUrl = this.ds_menu.getColumn(e.row, "MENU_URL");
+
+    if (!menuUrl || menuUrl == "") {
+        return;
+    }
+
+    var mainVfrs = objApp && objApp.mainframe && objApp.mainframe.vfrs;
+    var mainHfrs = mainVfrs && mainVfrs.hfrs;
+    var workVfrs = mainHfrs && mainHfrs.vfrs_work;
+    var mainFrame = workVfrs && workVfrs.frm_main;
+
+    if (mainFrame) {
+        mainFrame.set_formurl(menuUrl);
+    }
+
+    this.ds_menu.set_enableevent(false);
+    for (var i = 0; i < this.ds_menu.getRowCount(); i++) {
+        this.ds_menu.setColumn(i, "IS_SELECTED", "false");
+    }
+    this.ds_menu.set_enableevent(true);
+
+    this.ds_menu.setColumn(e.row, "IS_SELECTED", "true");
+};]]></Script>
+  </Form>
+</FDL>

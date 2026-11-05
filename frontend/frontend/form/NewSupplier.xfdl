@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="NewSupplier" width="1280" height="720" titletext="New Form" font="normal 500 14px/20px &quot;Segoe UI&quot;">
+    <Layouts>
+      <Layout height="945" width="1920">
+        <Div id="div00" taborder="0" left="0" top="0" width="500" height="720" text="">
+          <Layouts>
+            <Layout>
+              <Static id="sta00" taborder="0" text="New Supplier" left="29" top="27" width="124" height="30" font="normal 500 20px/30px &quot;Segoe UI&quot;" color="#383e49"/>
+              <Div id="div00" taborder="1" text="div00" left="142" top="69" width="211" height="81">
+                <Layouts>
+                  <Layout>
+                    <ImageViewer id="img00" taborder="0" left="0" top="0" width="81" height="81" border="1px dashed #9d9d9d" borderRadius="50%"/>
+                    <Static id="sta00" taborder="1" text="Drag image here" left="101" top="9" width="110" height="20" font="normal 400 14px/20px &quot;Segoe UI&quot;" color="#858d9d" textAlign="center"/>
+                    <Static id="sta01" taborder="2" text="or" left="149" top="30" width="14" height="20" font="normal 400 14px/20px &quot;Segoe UI&quot;" color="#858d9d" textAlign="center"/>
+                    <Static id="sta02" taborder="3" text="Browse image" left="109" top="52" width="94" height="20" font="normal 400 14px/20px &quot;Segoe UI&quot;" color="#448df2" textAlign="center"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="div01" taborder="2" left="29" top="182" width="440" height="44">
+                <Layouts>
+                  <Layout>
+                    <Static id="sta00" taborder="0" text="Supplier Name" left="0" top="10" width="112" height="24" font="normal 500 16px/24px &quot;Segoe UI&quot;" color="#48505e"/>
+                    <Edit id="edt00" taborder="1" height="44" width="273" right="0" top="0" borderRadius="8px" displaynulltext="Enter supplier name" font="normal 400 16px/24px &quot;Segoe UI&quot;"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="div01_00" taborder="3" left="29" top="250" width="440" height="44">
+                <Layouts>
+                  <Layout>
+                    <Static id="sta00" taborder="0" text="Product" left="0" top="10" width="112" height="24" font="normal 500 16px/24px &quot;Segoe UI&quot;" color="#48505e"/>
+                    <Edit id="edt00" taborder="1" height="44" width="273" right="0" top="0" borderRadius="8px" displaynulltext="Enter product" font="normal 400 16px/24px &quot;Segoe UI&quot;"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="div01_00_00" taborder="4" left="29" top="318" width="440" height="44">
+                <Layouts>
+                  <Layout>
+                    <Static id="sta00" taborder="0" text="Category" left="0" top="10" width="112" height="24" font="normal 500 16px/24px &quot;Segoe UI&quot;" color="#48505e"/>
+                    <Edit id="edt00" taborder="1" height="44" width="273" right="0" top="0" borderRadius="8px" displaynulltext="Enter product category" font="normal 400 16px/24px &quot;Segoe UI&quot;"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="div01_00_00_00" taborder="5" left="29" top="386" width="440" height="44">
+                <Layouts>
+                  <Layout>
+                    <Static id="sta00" taborder="0" text="Buying Price" left="0" top="10" width="112" height="24" font="normal 500 16px/24px &quot;Segoe UI&quot;" color="#48505e"/>
+                    <Edit id="edt00" taborder="1" height="44" width="273" right="0" top="0" borderRadius="8px" displaynulltext="Enter buying price" font="normal 400 16px/24px &quot;Segoe UI&quot;"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="div01_00_00_00_00" taborder="6" left="29" top="454" width="440" height="44">
+                <Layouts>
+                  <Layout>
+                    <Static id="sta00" taborder="0" text="Contact Number" left="0" top="10" width="131" height="24" font="normal 500 16px/24px &quot;Segoe UI&quot;" color="#48505e"/>
+                    <Edit id="edt00" taborder="1" height="44" width="273" right="0" top="0" borderRadius="8px" displaynulltext="Enter supplier contact number" font="normal 400 16px/24px &quot;Segoe UI&quot;"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="div02" taborder="7" text="div02" left="29" top="522" width="319" height="104">
+                <Layouts>
+                  <Layout>
+                    <Static id="sta00" taborder="0" text="Type" left="0" top="0" width="38" height="24" font="normal 500 16px/24px &quot;Segoe UI&quot;" color="#48505e"/>
+                    <Div id="div00" taborder="1" width="157" height="104" top="0" right="0">
+                      <Layouts>
+                        <Layout>
+                          <Button id="btn00" taborder="0" text="Not taking return" left="0" top="0" width="157" height="44" borderRadius="8px" color="#858d9d" font="normal 400 16px/24px &quot;Segoe UI&quot;"/>
+                          <Button id="btn01" taborder="1" text="Taking return" left="0" width="120" height="44" borderRadius="8px" color="#858d9d" font="normal 400 16px/24px &quot;Segoe UI&quot;" bottom="0"/>
+                        </Layout>
+                      </Layouts>
+                    </Div>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Button id="btn00" taborder="8" text="Discard" left="229" top="658" width="110" height="39" borderRadius="4px" color="#858d9d" font="normal 500 16px/100% &quot;Segoe UI&quot;" onclick="div00_btn00_onclick"/>
+              <Button id="btn01" taborder="9" text="Add Supplier" left="351" top="658" width="119" height="40" borderRadius="4px" background="#1366d9" color="#ffffff" font="normal 500 14px/20px &quot;Segoe UI&quot;"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.div00_btn00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.close(false);
+};
+]]></Script>
+  </Form>
+</FDL>

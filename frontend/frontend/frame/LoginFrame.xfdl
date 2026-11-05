@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="LoginFrame" width="1920" height="945" titletext="New Form" onload="LoginFrame_onload">
+    <Layouts>
+      <Layout height="945" width="1920">
+        <ImageViewer id="img00" taborder="0" left="298" top="299" width="250" height="362" image="url('theme://images/logo1.png')" fittocontents="none" stretch="fit"/>
+        <Div id="div00" taborder="1" top="186" width="478" height="146" text="" right="298">
+          <Layouts>
+            <Layout>
+              <ImageViewer id="img00" taborder="0" top="0" width="48" height="48" left="215" image="url('theme://images/logo.png')"/>
+              <Div id="div00" taborder="1" text="div00" left="0" right="0" bottom="0" height="74">
+                <Layouts>
+                  <Layout>
+                    <Static id="sta00" taborder="0" text="Log in to your account" left="0" top="0" height="38" right="0" font="normal 600 30px/38px &quot;Segoe UI&quot;" color="#101828" textAlign="center"/>
+                    <Static id="sta01" taborder="1" text="Welcome back! Please enter your details." left="0" top="40" right="0" height="24" font="normal 400 16px/24px &quot;Segoe UI&quot;" textAlign="center" color="#667085"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div01" taborder="2" text="div01" top="381" width="478" height="160" right="298">
+          <Layouts>
+            <Layout>
+              <Div id="div00" taborder="0" text="div00" left="0" top="0" height="70" right="0">
+                <Layouts>
+                  <Layout>
+                    <Static id="sta00" taborder="0" text="Email" left="0" top="0" width="120" height="20" font="normal 500 14px/20px &quot;Segoe UI&quot;" color="#48505e"/>
+                    <Edit id="edtEmail" taborder="1" left="0" right="0" height="44" bottom="0" displaynulltext="Enter your email" font="normal 400 16px/24px &quot;Segoe UI&quot;" borderRadius="8px"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="div00_00" taborder="1" text="div00" left="0" right="0" height="70" bottom="0">
+                <Layouts>
+                  <Layout>
+                    <Static id="sta00" taborder="0" text="Password" left="0" top="0" width="120" height="20" font="normal 500 14px/20px &quot;Segoe UI&quot;" color="#48505e"/>
+                    <Edit id="edtPassword" taborder="1" left="0" right="0" height="44" bottom="0" displaynulltext="Enter your password" font="normal 400 16px/24px &quot;Segoe UI&quot;" borderRadius="8px" password="true"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div02" taborder="3" top="565" width="478" height="20" right="298" text="">
+          <Layouts>
+            <Layout>
+              <CheckBox id="chkRemember" taborder="0" text="Remember for 30 days" left="0" top="0" width="177" bottom="0" color="#48505e" font="normal 500 14px/20px &quot;Segoe UI&quot;"/>
+              <Button id="btnForgot" taborder="1" top="0" height="20" text="Forgot password" background="transparent" border="0px none" color="#1366D9" font="normal 500 14px/20px &quot;Segoe UI&quot;" right="0" width="120" textAlign="right" onclick="btnForgot_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Button id="btnSignIn" taborder="4" text="Sign in" top="609" height="44" right="298" width="478" background="#1366D9" borderRadius="4px" font="normal 500 16px/24px &quot;Segoe UI&quot;" color="#ffffff" onclick="btnSignIn_onclick"/>
+        <Div id="div03" taborder="5" top="660" width="478" height="20" right="298">
+          <Layouts>
+            <Layout>
+              <Static id="sta00" taborder="0" text="Don’t have an account?" left="140" top="0" width="155" bottom="0" color="#667085" font="normal 400 14px/20px &quot;Segoe UI&quot;"/>
+              <Button id="btnSignup" taborder="1" left="297" top="0" width="70" height="20" color="#1366d9" text="Sign up" font="normal 500 14px/20px &quot;Segoe UI&quot;" background="transparent" border="0px none" onclick="btnSignup_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsCond">
+        <ColumnInfo>
+          <Column id="email" type="STRING" size="256"/>
+          <Column id="password" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsStatus">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="message" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[
+this.fnGetRememberStorage = function()
+{
+    try {
+        if (!window || !window.localStorage) {
+            return null;
+        }
+
+        var saved = window.localStorage.getItem("kanban_last_login");
+        if (!saved) {
+            return null;
+        }
+
+        var obj = JSON.parse(saved);
+        if (!obj || !obj.expireAt) {
+            return null;
+        }
+
+        var now = new Date().getTime();
+        if (now > Number(obj.expireAt)) {
+            window.localStorage.removeItem("kanban_last_login");
+            return null;
+        }
+
+        return obj;
+    } catch (e) {
+        return null;
+    }
+};
+
+this.fnSetRememberStorage = function(email, password)
+{
+    try {
+        if (!window || !window.localStorage) {
+            return;
+        }
+
+        var now = new Date().getTime();
+        var expireAt = now + (30 * 24 * 60 * 60 * 1000);
+        var data = {
+            email: email,
+            password: password,
+            expireAt: expireAt
+        };
+
+        window.localStorage.setItem("kanban_last_login", JSON.stringify(data));
+    } catch (e) {
+    }
+};
+
+this.fnClearRememberStorage = function()
+{
+    try {
+        if (window && window.localStorage) {
+            window.localStorage.removeItem("kanban_last_login");
+        }
+    } catch (e) {
+    }
+};
+
+this.LoginFrame_onload = function(obj, e)
+{
+    var app = nexacro.getApplication();
+    var saved = this.fnGetRememberStorage();
+
+    if (app && (app.gvIsLoggedIn == true || app.gvIsLoggedIn == "true")) {
+        var ownerFrame = this.getOwnerFrame();
+        if (ownerFrame) {
+            ownerFrame.set_formurl("FrameBase::Main::Form_Dashboard.xfdl");
+        }
+        return;
+    }
+
+    if (saved) {
+        if (app) {
+            app.gvIsLoggedIn = true;
+            app.gvUserEmail = saved.email;
+            if (app.showMainFrame) {
+                app.showMainFrame();
+            }
+        }
+        return;
+    }
+
+    var edtEmail = this.div01.form.div00.form.edtEmail;
+    var edtPassword = this.div01.form.div00_00.form.edtPassword;
+    var chkRemember = this.div02.form.chkRemember;
+
+    edtEmail.value = "";
+    edtPassword.value = "";
+    chkRemember.value = false;
+};
+
+this.btnSignIn_onclick = function(obj, e)
+{
+    var email = this.div01.form.div00.form.edtEmail.value;
+    var password = this.div01.form.div00_00.form.edtPassword.value;
+    var remember = this.div02.form.chkRemember.value == true;
+
+    if (email == null || email == "") {
+        alert("Please enter your email.");
+        return;
+    }
+
+    if (password == null || password == "") {
+        alert("Please enter your password.");
+        return;
+    }
+
+    this._rememberLogin = remember;
+
+    this.dsCond.clearData();
+    var r = this.dsCond.addRow();
+    this.dsCond.setColumn(r, "email", email);
+    this.dsCond.setColumn(r, "password", password);
+
+    var id = "login";
+    var url = "http://localhost:8080/login/login";
+    var reqDs = "dsInput=dsCond";
+    var respDs = "dsStatus=ResultDataset";
+    var args = "";
+    var callback = "fnCallback";
+
+    this.transaction(id, url, reqDs, respDs, args, callback);
+};
+
+this.fnCallback = function(svcID, errCD, errMsg)
+{
+    if (errCD < 0) {
+        alert(errMsg);
+        return;
+    }
+
+    var cnt = this.dsStatus.getRowCount();
+    if (cnt == 0) {
+        alert("Login Fail");
+        return;
+    }
+
+    var code = this.dsStatus.getColumn(0, "code");
+    if (code > 0) {
+        alert("Login Fail");
+        return;
+    }
+
+    var app = nexacro.getApplication();
+    var email = this.div01.form.div00.form.edtEmail.value;
+    var password = this.div01.form.div00_00.form.edtPassword.value;
+
+    if (app) {
+        app.gvIsLoggedIn = true;
+        app.gvUserEmail = email;
+        if (app.showMainFrame) {
+            app.showMainFrame();
+        }
+    }
+
+    if (this._rememberLogin == true) {
+        this.fnSetRememberStorage(email, password);
+    } else {
+        this.fnClearRememberStorage();
+    }
+};
+
+this.btnSignup_onclick = function(obj, e)
+{
+    var parentFrame = this.getOwnerFrame();
+    if (parentFrame) {
+        parentFrame.set_formurl("frame::SignUpFrame.xfdl");
+    }
+};
+
+this.btnForgot_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	
+};
+]]></Script>
+  </Form>
+</FDL>

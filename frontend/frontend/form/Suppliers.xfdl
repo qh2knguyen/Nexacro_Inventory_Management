@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Suppliers" width="1546" height="845" titletext="New Form" background="#F0F1F3" onload="Suppliers_onload">
+    <Layouts>
+      <Layout height="845" mobileorientation="landscape" width="1546">
+        <Div id="div_suppliers" taborder="0" left="43" top="8" width="1460" bottom="8" borderRadius="8px" background="#ffffff">
+          <Layouts>
+            <Layout>
+              <Static id="sta_employees" taborder="0" text="Suppliers" left="21" top="28" width="120" height="30" font="normal 500 20px/30px &quot;Segoe UI&quot;"/>
+              <Button id="btn_add_supplier" taborder="1" text="Add Supplier" top="19" width="118" height="40" color="#ffffff" font="normal 500 14px/20px &quot;Segoe UI&quot;" background="#1366D9" borderRadius="4px" right="283" onclick="div_products_btn_add_supplier_onclick"/>
+              <Grid id="grd_suppliers" taborder="2" left="21" top="68" right="21" autofittype="col" border="0px none" nodatatext="No data found" selecttype="row" onheadclick="div_employees_grd_employees_onheadclick" oncelldblclick="div_employees_grd_employees_oncelldblclick" oncellclick="div_employees_grd_employees_oncellclick" bottom="68" binddataset="ds_suppliers">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="46" band="head"/>
+                      <Row size="46"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell text="Supplier Name" background="#ffffff" border="0px none, 0px none, 1px solid #d0d3d9" color="#667085" font="normal 500 14px/20px &quot;Segoe UI&quot;"/>
+                      <Cell col="1" text="Product" background="#ffffff" border="0px none, 0px none, 1px solid #d0d3d9" color="#667085" font="normal 500 14px/20px &quot;Segoe UI&quot;"/>
+                      <Cell col="2" text="Contact Number" background="#ffffff" border="0px none, 0px none, 1px solid #d0d3d9" color="#667085" font="normal 500 14px/20px &quot;Segoe UI&quot;"/>
+                      <Cell col="3" text="Email" background="#ffffff" border="0px none, 0px none, 1px solid #d0d3d9" color="#667085" font="normal 500 14px/20px &quot;Segoe UI&quot;"/>
+                      <Cell col="4" text="Type" background="#ffffff" border="0px none, 0px none, 1px solid #d0d3d9" color="#667085" font="normal 500 14px/20px &quot;Segoe UI&quot;"/>
+                      <Cell col="5" text="On The Way" background="#ffffff" border="0px none, 0px none, 1px solid #d0d3d9" color="#667085" font="normal 500 14px/20px &quot;Segoe UI&quot;"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell text="bind:supplierName" border="0px none,0px none,1px solid #D0D3D9" color="#48505e" font="normal 500 14px/20px &quot;Segoe UI&quot;"/>
+                      <Cell col="1" text="bind:product" border="0px none,0px none,1px solid #D0D3D9" color="#48505e" font="normal 500 14px/20px &quot;Segoe UI&quot;"/>
+                      <Cell col="2" text="bind:contactNumber" border="0px none,0px none,1px solid #D0D3D9" color="#48505e" font="normal 500 14px/20px &quot;Segoe UI&quot;"/>
+                      <Cell col="3" text="bind:email" border="0px none,0px none,1px solid #D0D3D9" color="#48505e" font="normal 500 14px/20px &quot;Segoe UI&quot;"/>
+                      <Cell col="4" text="bind:returnPolicy" border="0px none,0px none,1px solid #D0D3D9" color="#48505e" font="normal 500 14px/20px &quot;Segoe UI&quot;"/>
+                      <Cell col="5" text="bind:onTheWay" border="0px none,0px none,1px solid #D0D3D9" color="#48505e" font="normal 500 14px/20px &quot;Segoe UI&quot;"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="btn_previous" taborder="3" text="Previous" width="101" height="40" borderRadius="4px" font="normal 500 14px/20px &quot;Segoe UI&quot;" color="#5d6679" left="21" bottom="12" onclick="div_suppliers_btn_previous_onclick"/>
+              <Button id="btn_next" taborder="4" text="Next" width="101" height="40" borderRadius="4px" font="normal 500 14px/20px &quot;Segoe UI&quot;" color="#5d6679" right="21" bottom="12" onclick="div_suppliers_btn_next_onclick"/>
+              <Static id="sta_pageText" taborder="5" text="Page 0 of 0" left="734" width="78" height="40" font="normal 400 14px/20px &quot;Segoe UI&quot;" bottom="12"/>
+              <Button id="btn_download_add_suppliers" taborder="6" text="Download all" top="19" width="118" height="40" right="21" borderRadius="4px" font="normal 500 14px/20px &quot;Segoe UI&quot;" color="#5d6679"/>
+              <Button id="btn_filter_supplier" taborder="7" text="Filters" top="19" width="102" height="40" right="160" borderRadius="4px" font="normal 500 14px/20px &quot;Segoe UI&quot;" color="#5d6679"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_suppliers">
+        <ColumnInfo>
+          <Column id="supplierId" type="STRING" size="256"/>
+          <Column id="supplierName" type="STRING" size="256"/>
+          <Column id="product" type="STRING" size="256"/>
+          <Column id="contactNumber" type="STRING" size="256"/>
+          <Column id="email" type="STRING" size="256"/>
+          <Column id="returnPolicy" type="STRING" size="256"/>
+          <Column id="onTheWay" type="STRING" size="256"/>
+          <Column id="totalRows" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[
+this.currentPage = 1;
+this.recordsPerPage = 9;
+this.totalRecords = 0;    
+this.totalPages = 0;
+
+this.div_products_btn_add_supplier_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var objArg = {formType: "supplier"};
+	var objOption = {width:"500", height:"720", popuptype:"modal", titlebar:false, resize:true};
+	this.gfnOpenPopup("addSupplierForm", "form::NewSupplier.xfdl", objArg, "fn_popup_callback", objOption);
+};
+
+this.Suppliers_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.transaction(
+		"getSupplierList",
+		"http://localhost:8080/supplier",
+		"",
+		"ds_suppliers=IDDataset",
+		"page=1 page_size=" + this.recordsPerPage,
+		"fn_callback"
+	)
+};
+
+this.fn_callback = function(serviceId, errorCode, errorMessage) {
+	if(errorCode >= 0) {
+		if(serviceId == "getSupplierList" || serviceId == "searchSupplier") {
+			this.currentPage = 1;
+			this.totalRecords = this.ds_suppliers.getColumn(0, "totalRows");
+			this.fn_calculatePagination();
+			return;
+		}
+// 		if(serviceId == "str_get_all_employees") {
+// 			/*alert("Get all employees successfully");*/
+// 			return;
+// 		}
+// 		if(serviceId == "str_add_employee") {
+// 			this.alert("Added successfully.");
+// 			this.div_search_condition_btn_search_onclick();
+// 			return;
+// 		}
+// 		if(serviceId == "str_update_employee") {
+// 			this.alert("Changes saved.");
+// 			this.div_search_condition_btn_search_onclick();
+// 			return;
+// 		}
+// 		if(serviceId == "str_delete_employees") {
+// 			this.alert("Deleted successfully.");
+// 			this.div_search_condition_btn_search_onclick();
+// 			return;
+// 		}
+	}
+	else {
+		alert("Error");
+		return;
+	}
+}
+
+this.fn_calculatePagination = function() {
+    this.totalPages = Math.ceil(this.totalRecords / this.recordsPerPage);
+    if (this.currentPage > this.totalPages && this.totalPages > 0) {
+        this.currentPage = this.totalPages;
+    } else if (this.totalPages === 0) {
+        this.currentPage = 0;
+    }
+
+	this.div_suppliers.form.sta_pageText.text = "Page " + this.currentPage + " of " + this.totalPages
+    this.fn_setButtonStatus();
+};
+
+this.fn_displayPageData = function() {
+    this.ds_suppliers.clearData();
+
+    if (this.totalRecords === 0) {
+        return;
+    }
+	
+	this.transaction(
+		"getSupplierList",
+		"http://localhost:8080/supplier",
+		"",
+		"ds_suppliers=IDDataset",
+		"page=" + this.currentPage + " page_size=" + this.recordsPerPage,
+		"fn_callback"
+	)
+    
+    this.div_suppliers.form.sta_pageText.text = "Page " + this.currentPage + " of " + this.totalPages
+    this.fn_setButtonStatus();
+};
+
+this.fn_setButtonStatus = function() {
+    var bEnable = (this.totalRecords > 0);
+    this.div_suppliers.form.btn_previous.set_enable(bEnable && this.currentPage > 1);
+    this.div_suppliers.form.btn_next.set_enable(bEnable && this.currentPage < this.totalPages);
+};
+
+this.div_suppliers_btn_previous_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	if (this.currentPage > 1) {
+        this.currentPage--;
+        this.fn_displayPageData();
+    }
+};
+
+this.div_suppliers_btn_next_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	if (this.currentPage < this.totalPages) {
+        this.currentPage++;
+        this.fn_displayPageData();
+    }
+};
+]]></Script>
+  </Form>
+</FDL>

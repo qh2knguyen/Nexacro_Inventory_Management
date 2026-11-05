@@ -1,0 +1,544 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="ProductList" width="1546" height="845" titletext="New Form" background="#F0F1F3" onload="EmployeeFrame_onload">
+    <Layouts>
+      <Layout height="1546" width="845">
+        <Div id="div_search_condition" taborder="0" left="43" top="8" height="188" right="43" borderRadius="8px" background="#ffffff" text="">
+          <Layouts>
+            <Layout>
+              <Static id="sta_overall_invetory" taborder="0" text="Overall Inventory" left="59" top="13" width="216" height="30" font="normal 500 20px/30px &quot;Segoe UI&quot;" fittocontents="width"/>
+              <Div id="div00" taborder="1" left="59" top="67" width="144" height="92" text="">
+                <Layouts>
+                  <Layout>
+                    <Static id="sta00" taborder="0" text="Categories" left="0" top="-9" width="114" height="33" font="normal 600 16pt/24px &quot;Segoe UI&quot;" color="#1570ef" verticalAlign="middle"/>
+                    <Static id="sta00_00" taborder="1" text="14" left="0" top="28" width="114" height="30" font="normal 600 16pt/24px &quot;Segoe UI&quot;" color="#5d6679"/>
+                    <Static id="sta00_00_00" taborder="2" text="Last 7 days" left="0" width="114" font="normal 400 14pt/20px &quot;Segoe UI&quot;" color="#858d9d" height="32" bottom="0"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="div01" taborder="2" text="div01" left="279" top="56" width="1" height="99" border="0px none #f0f1f3, 1px solid #f0f1f3" color="#f0f1f3"/>
+              <Div id="div00_00" taborder="3" left="353" top="67" width="250" height="92" text="">
+                <Layouts>
+                  <Layout>
+                    <Static id="sta00" taborder="0" text="Categories" left="0" top="-9" width="114" height="33" font="normal 600 16pt/24px &quot;Segoe UI&quot;" color="#e19133" verticalAlign="middle"/>
+                    <Div id="div00" taborder="1" left="0" top="28" right="0" bottom="0">
+                      <Layouts>
+                        <Layout>
+                          <Static id="sta00_00" taborder="0" text="868" left="0" top="0" width="114" height="30" font="normal 600 16pt/24px &quot;Segoe UI&quot;" color="#5d6679"/>
+                          <Static id="sta00_00_00" taborder="1" text="Last 7 days" left="0" width="114" font="normal 400 14pt/20px &quot;Segoe UI&quot;" color="#858d9d" height="32" bottom="0"/>
+                          <Static id="sta00_00_01" taborder="2" text="₹25000" top="0" font="normal 600 16pt/24px &quot;Segoe UI&quot;" color="#5d6679" right="0" height="30" width="114" textAlign="right"/>
+                          <Static id="sta00_00_00_00" taborder="3" text="Revenue" left="136" width="114" font="normal 400 14pt/20px &quot;Segoe UI&quot;" color="#858d9d" height="32" bottom="0" textAlign="right"/>
+                        </Layout>
+                      </Layouts>
+                    </Div>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="div01_00" taborder="4" left="677" top="56" width="1" height="99" border="0px none #f0f1f3, 1px solid #f0f1f3" color="#f0f1f3"/>
+              <Div id="div00_00_00" taborder="5" left="749" top="67" width="250" height="92" text="">
+                <Layouts>
+                  <Layout>
+                    <Static id="sta00" taborder="0" text="Top Selling" left="0" top="-9" width="114" height="33" font="normal 600 16pt/24px &quot;Segoe UI&quot;" color="#845ebc" verticalAlign="middle"/>
+                    <Div id="div00" taborder="1" left="0" top="28" right="0" bottom="0">
+                      <Layouts>
+                        <Layout>
+                          <Static id="sta00_00" taborder="0" text="5" left="0" top="0" width="114" height="30" font="normal 600 16pt/24px &quot;Segoe UI&quot;" color="#5d6679"/>
+                          <Static id="sta00_00_00" taborder="1" text="Last 7 days" left="0" width="114" font="normal 400 14pt/20px &quot;Segoe UI&quot;" color="#858d9d" height="32" bottom="0"/>
+                          <Static id="sta00_00_01" taborder="2" text="₹2500" top="0" font="normal 600 16pt/24px &quot;Segoe UI&quot;" color="#5d6679" right="0" height="30" width="114" textAlign="right"/>
+                          <Static id="sta00_00_00_00" taborder="3" text="Cost" left="136" width="114" font="normal 400 14pt/20px &quot;Segoe UI&quot;" color="#858d9d" height="32" bottom="0" textAlign="right"/>
+                        </Layout>
+                      </Layouts>
+                    </Div>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Div id="div01_00_00" taborder="6" left="1095" top="56" width="1" height="99" border="0px none #f0f1f3, 1px solid #f0f1f3" color="#f0f1f3"/>
+              <Div id="div00_00_00_00" taborder="7" left="1168" top="67" width="250" height="92" text="">
+                <Layouts>
+                  <Layout>
+                    <Static id="sta00" taborder="0" text="Low Stocks" left="0" top="-9" width="114" height="33" font="normal 600 16pt/24px &quot;Segoe UI&quot;" color="#f36960" verticalAlign="middle"/>
+                    <Div id="div00" taborder="1" left="0" top="28" right="0" bottom="0">
+                      <Layouts>
+                        <Layout>
+                          <Static id="sta00_00" taborder="0" text="12" left="0" top="0" width="114" height="30" font="normal 600 16pt/24px &quot;Segoe UI&quot;" color="#5d6679"/>
+                          <Static id="sta00_00_00" taborder="1" text="Ordered" left="0" width="114" font="normal 400 14pt/20px &quot;Segoe UI&quot;" color="#858d9d" height="32" bottom="0"/>
+                          <Static id="sta00_00_01" taborder="2" text="2" top="0" font="normal 600 16pt/24px &quot;Segoe UI&quot;" color="#5d6679" right="0" height="30" width="114" textAlign="right"/>
+                          <Static id="sta00_00_00_00" taborder="3" text="Not in stock" left="136" width="114" font="normal 400 14pt/20px &quot;Segoe UI&quot;" color="#858d9d" height="32" bottom="0" textAlign="right"/>
+                        </Layout>
+                      </Layouts>
+                    </Div>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Div id="div_products" taborder="1" left="43" top="204" bottom="8" borderRadius="8px" background="#ffffff" right="43">
+          <Layouts>
+            <Layout>
+              <Static id="sta_employees" taborder="0" text="Products" left="21" top="28" width="120" height="30" font="normal 500 20px/30px &quot;Segoe UI&quot;"/>
+              <Button id="btn_add_product" taborder="1" text="Add Product" top="19" width="118" height="40" color="#ffffff" font="normal 500 14px/20px &quot;Segoe UI&quot;" background="#1366D9" borderRadius="4px" right="283"/>
+              <Grid id="grd_products" taborder="2" left="21" top="68" right="21" autofittype="col" border="0px none" nodatatext="No data found" selecttype="row" binddataset="ds_inventory" onheadclick="div_employees_grd_employees_onheadclick" oncelldblclick="div_employees_grd_employees_oncelldblclick" oncellclick="div_employees_grd_employees_oncellclick" bottom="68">
+                <Formats>
+                  <Format id="default">
+                    <Columns>
+                      <Column size="48" band="left"/>
+                      <Column size="138"/>
+                      <Column size="111"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="80"/>
+                      <Column size="108"/>
+                    </Columns>
+                    <Rows>
+                      <Row size="46" band="head"/>
+                      <Row size="46"/>
+                    </Rows>
+                    <Band id="head">
+                      <Cell displaytype="normal" edittype="none" background="#ffffff" border="0px none, 0px none, 1px solid #d0d3d9"/>
+                      <Cell col="1" text="Products" background="#ffffff" border="0px none, 0px none, 1px solid #d0d3d9" color="#667085" font="normal 500 14px/20px &quot;Segoe UI&quot;" textAlign="left"/>
+                      <Cell col="2" text="Buying Price" background="#ffffff" border="0px none, 0px none, 1px solid #d0d3d9" color="#667085" font="normal 500 14px/20px &quot;Segoe UI&quot;" textAlign="left"/>
+                      <Cell col="3" text="Quantity" background="#ffffff" border="0px none, 0px none, 1px solid #d0d3d9" color="#667085" font="normal 500 14px/20px &quot;Segoe UI&quot;" textAlign="left"/>
+                      <Cell col="4" text="Threshold Value" background="#ffffff" border="0px none, 0px none, 1px solid #d0d3d9" color="#667085" font="normal 500 14px/20px &quot;Segoe UI&quot;" textAlign="left"/>
+                      <Cell col="5" text="Expiry Date" background="#ffffff" border="0px none, 0px none, 1px solid #d0d3d9" color="#667085" font="normal 500 14px/20px &quot;Segoe UI&quot;" textAlign="left"/>
+                      <Cell col="6" text="Availability" background="#ffffff" border="0px none, 0px none, 1px solid #d0d3d9" color="#667085" font="normal 500 14px/20px &quot;Segoe UI&quot;" textAlign="left"/>
+                    </Band>
+                    <Band id="body">
+                      <Cell displaytype="checkboxcontrol" edittype="checkbox" text="bind:chkCol" border="0px none,0px none,1px solid #D0D3D9"/>
+                      <Cell col="1" text="bind:name" border="0px none,0px none,1px solid #D0D3D9" color="#48505e" font="normal 500 14px/20px &quot;Segoe UI&quot;"/>
+                      <Cell col="2" text="bind:buyingPrice" border="0px none,0px none,1px solid #D0D3D9" color="#48505e" font="normal 500 14px/20px &quot;Segoe UI&quot;"/>
+                      <Cell col="3" text="bind:quantity" border="0px none,0px none,1px solid #D0D3D9" color="#48505e" font="normal 500 14px/20px &quot;Segoe UI&quot;"/>
+                      <Cell col="4" text="bind:thresholdValue" border="0px none,0px none,1px solid #D0D3D9" color="#48505e" font="normal 500 14px/20px &quot;Segoe UI&quot;"/>
+                      <Cell col="5" text="bind:expiryDate" border="0px none,0px none,1px solid #D0D3D9" color="#48505e" font="normal 500 14px/20px &quot;Segoe UI&quot;"/>
+                      <Cell col="6" border="0px none,0px none,1px solid #D0D3D9" color="#48505e" font="normal 500 14px/20px &quot;Segoe UI&quot;" text="bind:availability"/>
+                    </Band>
+                  </Format>
+                </Formats>
+              </Grid>
+              <Button id="btn_previous" taborder="3" text="Previous" width="101" height="40" borderRadius="4px" font="normal 500 14px/20px &quot;Segoe UI&quot;" color="#5d6679" left="21" bottom="12" onclick="div_employees_btn_previous_onclick"/>
+              <Button id="btn_next" taborder="4" text="Next" width="101" height="40" borderRadius="4px" font="normal 500 14px/20px &quot;Segoe UI&quot;" color="#5d6679" right="21" bottom="12" onclick="div_employees_btn_next_onclick"/>
+              <Static id="sta_pageText" taborder="5" text="Page 0 of 0" left="734" width="78" height="40" font="normal 400 14px/20px &quot;Segoe UI&quot;" bottom="12"/>
+              <Button id="btn_download_all_products" taborder="6" text="Download all" top="19" width="118" height="40" right="21" borderRadius="4px" font="normal 500 14px/20px &quot;Segoe UI&quot;" color="#5d6679"/>
+              <Button id="btn_filter_product" taborder="7" text="Filters" top="19" width="102" height="40" right="160" borderRadius="4px" font="normal 500 14px/20px &quot;Segoe UI&quot;" color="#5d6679"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_employees">
+        <ColumnInfo>
+          <Column id="empId" type="STRING" size="256"/>
+          <Column id="empName" type="STRING" size="256"/>
+          <Column id="typeCd" type="STRING" size="256"/>
+          <Column id="posCd" type="STRING" size="256"/>
+          <Column id="empRank" type="STRING" size="256"/>
+          <Column id="empCoeSalary" type="STRING" size="256"/>
+          <Column id="degCd" type="STRING" size="256"/>
+          <Column id="empCoeLimit" type="STRING" size="256"/>
+          <Column id="empCoePos" type="STRING" size="256"/>
+          <Column id="empCoeRes" type="STRING" size="256"/>
+          <Column id="empAllCoe" type="STRING" size="256"/>
+          <Column id="empNextPro" type="STRING" size="256"/>
+          <Column id="noDecision" type="STRING" size="256"/>
+          <Column id="status" type="STRING" size="256"/>
+          <Column id="dateDecision" type="STRING" size="256"/>
+          <Column id="totalCount" type="STRING" size="256"/>
+          <Column id="chkCol" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_status">
+        <ColumnInfo>
+          <Column id="ID" type="STRING" size="256"/>
+          <Column id="VALUE" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="ID">ALL</Col>
+            <Col id="VALUE">All</Col>
+          </Row>
+          <Row>
+            <Col id="ID">ACTIVE</Col>
+            <Col id="VALUE">Active</Col>
+          </Row>
+          <Row>
+            <Col id="ID">INACTIVE</Col>
+            <Col id="VALUE">Inactive</Col>
+          </Row>
+          <Row>
+            <Col id="ID">PENDING</Col>
+            <Col id="VALUE">Pending</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_emp_search">
+        <ColumnInfo>
+          <Column id="empName" type="STRING" size="256"/>
+          <Column id="empCoeSalaryMin" type="STRING" size="256"/>
+          <Column id="empCoeSalaryMax" type="STRING" size="256"/>
+          <Column id="dateDecisionMin" type="STRING" size="256"/>
+          <Column id="dateDecisionMax" type="STRING" size="256"/>
+          <Column id="empRankMin" type="STRING" size="256"/>
+          <Column id="empRankMax" type="STRING" size="256"/>
+          <Column id="empAllCoeMin" type="STRING" size="256"/>
+          <Column id="empAllCoeMax" type="STRING" size="256"/>
+          <Column id="status" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="status">ALL</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_del">
+        <ColumnInfo>
+          <Column id="empId" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_inventory">
+        <ColumnInfo>
+          <Column id="id" type="STRING" size="256"/>
+          <Column id="productCode" type="STRING" size="256"/>
+          <Column id="name" type="STRING" size="256"/>
+          <Column id="unit" type="STRING" size="256"/>
+          <Column id="quantity" type="STRING" size="256"/>
+          <Column id="buyingPrice" type="STRING" size="256"/>
+          <Column id="thresholdValue" type="STRING" size="256"/>
+          <Column id="expiryDate" type="STRING" size="256"/>
+          <Column id="availability" type="STRING" size="256"/>
+          <Column id="chkCol" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[// this.currentPage = 1;
+// this.recordsPerPage = 9;
+// this.totalRecords = 0;    
+// this.totalPages = 0;
+// this.offset = 9;
+// 
+// this.CONST_NONE_MARK = "";
+// this.CONST_ASC_MARK = "▲";
+// this.CONST_DESC_MARK = "▼";
+// 
+// this.EmployeeFrame_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+// {
+// 	this.transaction(
+// 		"str_get_all_employees",
+// 		"http://localhost:8080/employee",
+// 		"",
+// 		"ds_employees=IDDataset",
+// 		"offset=0 limit=" + this.recordsPerPage,
+// 		"fn_callback"
+// 	)
+// };
+// 
+// this.fn_callback = function(serviceId, errorCode, errorMessage) {
+// 	if(errorCode >= 0) {
+// 		if(serviceId == "str_get_all_employees" || serviceId == "str_search_employees") {
+// 			this.currentPage = 1;
+// 			this.totalRecords = this.ds_employees.getColumn(0, "totalCount");
+// 			this.fn_calculatePagination();
+// 			return;
+// 		}
+// 		if(serviceId == "str_get_all_employees") {
+// 			/*alert("Get all employees successfully");*/
+// 			return;
+// 		}
+// 		if(serviceId == "str_add_employee") {
+// 			this.alert("Added successfully.");
+// 			this.div_search_condition_btn_search_onclick();
+// 			return;
+// 		}
+// 		if(serviceId == "str_update_employee") {
+// 			this.alert("Changes saved.");
+// 			this.div_search_condition_btn_search_onclick();
+// 			return;
+// 		}
+// 		if(serviceId == "str_delete_employees") {
+// 			this.alert("Deleted successfully.");
+// 			this.div_search_condition_btn_search_onclick();
+// 			return;
+// 		}
+// 	}
+// 	else {
+// 		alert("Error");
+// 		return;
+// 	}
+// }
+// 
+// this.div_search_condition_btn_search_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+// {
+// 	var isValid = this.fn_isValidSearchInput();
+// 	
+// 	if (!isValid) {
+// 		return;
+// 	}
+// 	
+// 	this.transaction(
+// 		"str_search_employees",
+// 		"http://localhost:8080/employee/search",
+// 		"dsInput=ds_emp_search",
+// 		"ds_employees=IDDataset",
+// 		"offset=0 limit=" + this.recordsPerPage,
+// 		"fn_callback"
+// 	)
+// };
+// 
+// this.div_search_condition_btn_clear_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+// {
+// 	this.div_search_condition.form.edt_emp_name.set_value("");
+// 	this.div_search_condition.form.edt_emp_coe_salary_1.set_value("");
+// 	this.div_search_condition.form.edt_emp_coe_salary_2.set_value("");
+// 	this.div_search_condition.form.cal_date_decision_1.set_value("");
+// 	this.div_search_condition.form.cal_date_decision_2.set_value("");
+// 	this.div_search_condition.form.edt_emp_rank_1.set_value("");
+// 	this.div_search_condition.form.edt_emp_rank_2.set_value("");
+// 	this.div_search_condition.form.edt_emp_all_coe_1.set_value("");
+// 	this.div_search_condition.form.edt_emp_all_coe_2.set_value("");
+// 	this.div_search_condition.form.cbo_status.set_value("ALL");
+// };
+// 
+// this.div_employees_grd_employees_onheadclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
+// {
+// 	this.fn_sort(obj, e);
+// };
+// 
+// this.div_employees_btn_add_employee_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+// {
+// 	var empId = this.generateUniqueId();
+// 	var addRowIdx = this.ds_employees.addRow();
+// 	while (this.ds_employees.findRow("empId", empId) > -1)
+// 	{
+// 		empId = this.generateUniqueId();
+// 	}
+// 	this.ds_employees.setColumn(addRowIdx, "empId", empId);
+// 	this.ds_employees.setColumn(addRowIdx, "status", "ACTIVE");
+// 	var objArg = {formType: "add"};
+// 	var objOption = {width:"588", height:"490", popuptype:"modal", titlebar:false, resize:true};
+// 	this.gfnOpenPopup("addForm", "frame::AddUpdateForm.xfdl", objArg, "fn_popup_callback", objOption);
+// };
+// 
+// this.div_employees_grd_employees_oncelldblclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
+// {
+// 	if (e.cell !== 0) { 
+// 		var objArg = {formType: "update"};
+// 		var objOption = {width:"588", height:"490", popuptype:"modal", titlebar:false, resize:true};
+// 		this.gfnOpenPopup("updateForm", "frame::AddUpdateForm.xfdl", objArg, "fn_popup_callback", objOption);
+// 	}
+// };
+// 
+// this.fn_isValidSearchInput = function() {
+// 	var invalidMessage = "";
+// 	var minSalaryCoe = parseFloat(this.div_search_condition.form.edt_emp_coe_salary_1.value);
+// 	var maxSalaryCoe = parseFloat(this.div_search_condition.form.edt_emp_coe_salary_2.value);
+// 	var minDecisionDate = this.div_search_condition.form.cal_date_decision_1.value;
+// 	var maxDecisionDate = this.div_search_condition.form.cal_date_decision_2.value;
+// 	var minRank = Number(this.div_search_condition.form.edt_emp_rank_1.value);
+// 	var maxRank = Number(this.div_search_condition.form.edt_emp_rank_2.value);
+// 	var minAllCoe = parseFloat(this.div_search_condition.form.edt_emp_all_coe_1.value);
+// 	var maxAllCoe = parseFloat(this.div_search_condition.form.edt_emp_all_coe_2.value);
+// 	
+// 	if (minSalaryCoe && maxSalaryCoe && minSalaryCoe > maxSalaryCoe) {
+// 		invalidMessage = "Min salary coefficient must be less than or equal to Max salary coefficient.";
+// 		this.fn_showInvalidPopup(invalidMessage);
+// 		return false;
+// 	}
+// 	if (minDecisionDate && maxDecisionDate && minDecisionDate > maxDecisionDate) {
+// 		invalidMessage = "Min decision date must be less than or equal to Max decision date.";
+// 		this.fn_showInvalidPopup(invalidMessage);
+// 		return false;
+// 	}
+// 	if (minRank && maxRank && minRank > maxRank) {
+// 		invalidMessage = "Min rank must be less than or equal to Max rank.";
+// 		this.fn_showInvalidPopup(invalidMessage);
+// 		return false;
+// 	}
+// 	if (minAllCoe && maxAllCoe && minAllCoe > maxAllCoe) {
+// 		invalidMessage = "Min coefficient must be less than or equal to Max coefficient.";
+// 		this.fn_showInvalidPopup(invalidMessage);
+// 		return false;
+// 	}
+// 	return true;
+// }
+// 
+// this.fn_showInvalidPopup = function(message) {
+// 	var objArg = {paramContents: message};
+// 	var objOption = {width:"360", height:"200", popuptype:"modal", titlebar:false, resize:true};
+// 	this.gfnOpenPopup("popupAlert", "common::cmmAlert.xfdl", objArg, "", objOption);
+// }
+// 
+// this.fn_showDeleteConfirmPopup = function(message) {
+// 	var objArg = {paramContents: message};
+// 	var objOption = {width:"360", height:"200", popuptype:"modal", titlebar:false, resize:true};
+// 	this.gfnOpenPopup("deleteConfirm", "common::cmmConfirm.xfdl", objArg, "fn_popup_callback", objOption);
+// }
+// 
+// this.fn_sort = function (obj, e) 
+// {
+// 	if (obj.getCellProperty("head", e.cell, "displaytype") == "checkboxcontrol") return;
+// 	var objDs = obj.getBindDataset();
+// 	var sColId = obj.getCellProperty("body", e.cell, "text").split(":");
+// 	var sHeadText = "";
+// 	for (var i = 0; i < obj.getCellCount("head"); i++) {
+// 		sHeadText = obj.getCellText(-1, i);
+// 		if (i == e.cell) {
+// 			if (sHeadText.substr(sHeadText.length-1) == this.CONST_ASC_MARK) {
+// 				obj.setCellProperty("head", i, "text", sHeadText.substr(0, sHeadText.length - 1) + this.CONST_DESC_MARK);
+// 				objDs.keystring = "S:-" + sColId[1];
+// 			}
+// 			else if (sHeadText.substr(sHeadText.length-1) == this.CONST_DESC_MARK) {
+// 				obj.setCellProperty("head", i, "text", sHeadText.substr(0, sHeadText.length - 1) + this.CONST_NONE_MARK);
+// 				objDs.keystring = "";
+// 			}
+// 			else {
+// 				obj.setCellProperty("head", i, "text", sHeadText + this.CONST_ASC_MARK);
+// 				objDs.keystring = "S:+" + sColId[1];
+// 			}
+// 		}
+// 		else {
+// 			if (sHeadText != null && sHeadText != "") {
+// 				if (sHeadText.substr(sHeadText.length - 1) == this.CONST_ASC_MARK || sHeadText.substr(sHeadText.length - 1) == this.CONST_DESC_MARK) {
+// 					obj.setCellProperty("head", i, "text", sHeadText.substr(0, sHeadText.length - 1));
+// 				}
+// 			}
+// 		}
+// 	}
+// }
+// 
+// this.fn_popup_callback = function(sPopupId, returnVal) {
+// 	if (returnVal) {
+// 		// validate
+// 		
+// 		if(sPopupId == "addForm") {
+// 			this.fn_add_employee();
+// 		}
+// 		else if(sPopupId == "updateForm") {
+// 			this.fn_update_employee();
+// 		}
+// 		else if(sPopupId == "deleteConfirm") {
+// 			this.fn_delete_employee();
+// 		}
+// 	}
+// 	else {
+// 		this.ds_employees.reset();
+// 	}
+// }
+// 
+// this.fn_add_employee = function() {
+// 	
+// 	this.transaction(
+// 		"str_add_employee",
+// 		"http://localhost:8080/employee/add",
+// 		"dsInput=ds_employees:u",
+// 		"",
+// 		"",
+// 		"fn_callback"
+// 	)
+// }
+// 
+// this.fn_update_employee = function() {
+// 	
+// 	this.transaction(
+// 		"str_update_employee",
+// 		"http://localhost:8080/employee/update",
+// 		"dsInput=ds_employees:u",
+// 		"",
+// 		"",
+// 		"fn_callback"
+// 	)
+// }
+// 
+// this.fn_delete_employee = function() {
+// 	this.transaction(
+// 		"str_delete_employees",
+// 		"http://localhost:8080/employee/delete",
+// 		"dsDel=ds_del",
+// 		"",
+// 		"",
+// 		"fn_callback"
+// 	)
+// }
+// 
+// this.generateUniqueId = function() {
+//   const randomNum = Math.floor(Math.random() * 1000);
+//   const paddedNum = String(randomNum).padStart(3, '0');
+//   return `EMP${paddedNum}`;
+// }
+// 
+// this.fn_calculatePagination = function() {
+//     this.totalPages = Math.ceil(this.totalRecords / this.recordsPerPage);
+//     if (this.currentPage > this.totalPages && this.totalPages > 0) {
+//         this.currentPage = this.totalPages;
+//     } else if (this.totalPages === 0) {
+//         this.currentPage = 0;
+//     }
+// 
+// 	this.div_employees.form.sta_pageText.text = "Page " + this.currentPage + " of " + this.totalPages
+//     this.fn_setButtonStatus();
+// };
+// 
+// this.fn_displayPageData = function() {
+//     this.ds_employees.clearData();
+// 
+//     if (this.totalRecords === 0) {
+//         return;
+//     }
+// 
+// 	this.offset = (this.currentPage - 1) * this.recordsPerPage;
+// 	
+// 	this.transaction(
+// 		"str_pagination",
+// 		"http://localhost:8080/employee/search",
+// 		"dsInput=ds_emp_search",
+// 		"ds_employees=IDDataset",
+// 		"offset=" + this.offset + " limit=" + this.recordsPerPage,
+// 		"fn_callback"
+// 	)
+//     
+//     this.div_employees.form.sta_pageText.text = "Page " + this.currentPage + " of " + this.totalPages
+//     this.fn_setButtonStatus();
+// };
+// 
+// this.div_employees_btn_previous_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+// {
+// 	if (this.currentPage > 1) {
+//         this.currentPage--;
+//         this.fn_displayPageData();
+//     }
+// };
+// 
+// this.div_employees_btn_next_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+// {
+// 	if (this.currentPage < this.totalPages) {
+//         this.currentPage++;
+//         this.fn_displayPageData();
+//     }
+// };
+// 
+// this.fn_setButtonStatus = function() {
+//     var bEnable = (this.totalRecords > 0);
+//     this.div_employees.form.btn_previous.set_enable(bEnable && this.currentPage > 1);
+//     this.div_employees.form.btn_next.set_enable(bEnable && this.currentPage < this.totalPages);
+// };
+// 
+// this.div_search_condition_btn_delete_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+// {
+// 	this.ds_del.clearData();
+// 	for (var i = 0; i < this.ds_employees.rowcount; i++) {
+// 		if (this.ds_employees.getColumn(i, "chkCol") == "1") {
+// 			var rowIdx = this.ds_del.addRow();
+// 			var empId = this.ds_employees.getColumn(i, "empId")
+// 			this.ds_del.setColumn(rowIdx, "empId", empId);
+// 		}
+// 	}
+// 	
+// 	if (this.ds_del.rowcount === 0) {
+// 		this.fn_showInvalidPopup("Please select one or more rows to delete.");
+//         return;
+//     }
+// 	
+// 	this.fn_showDeleteConfirmPopup("Are you sure to delete selected rows?");
+// };
+]]></Script>
+  </Form>
+</FDL>

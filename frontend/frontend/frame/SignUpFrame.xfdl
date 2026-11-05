@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="SignUpFrame" width="1920" height="945" titletext="New Form" onload="SignUpFrame_onload">
+    <Layouts>
+      <Layout height="945" width="1920">
+        <ImageViewer id="img00" taborder="0" left="298" top="299" width="250" height="362" image="url('theme://images/logo1.png')" fittocontents="none" stretch="fit"/>
+        <Div id="div00" taborder="2" top="186" width="500" height="1000" text="" right="198">
+          <Layouts>
+            <Layout>
+              <ImageViewer id="img00" taborder="0" top="0" width="48" height="48" left="215" image="url('theme://images/logo.png')"/>
+              <Div id="div00" taborder="1" text="div00" left="0" right="0" height="650" top="img00:5">
+                <Layouts>
+                  <Layout>
+                    <Static id="staTitle" taborder="0" text="Create an account" left="0" top="0" height="38" font="normal 600 30px/38px &quot;Segoe UI&quot;" color="#101828" textAlign="center" right="0"/>
+                    <Static id="staSubtitle" taborder="1" text="Start your 30-day free trial." left="0" top="40" right="0" height="24" font="normal 400 16px/24px &quot;Segoe UI&quot;" textAlign="center" color="#667085"/>
+                    <Static id="staNameLabel" taborder="12" text="Name*" top="staSubtitle:28" height="20" font="normal 500 14px/20px &quot;Segoe UI&quot;" color="#48505e" right="0" width="478"/>
+                    <Edit id="edtName" taborder="13" right="0" height="44" displaynulltext="Enter your name" font="normal 400 16px/24px &quot;Segoe UI&quot;" borderRadius="8px" width="478" top="staNameLabel:2"/>
+                    <Static id="staNameMsg" taborder="16" top="edtName:1" height="18" text="" font="12px 'Arial'" color="#d93025" visible="false" right="0" width="478"/>
+                    <Static id="staEmailLabel" taborder="14" text="Email*" top="staNameMsg:1" height="20" font="normal 500 14px/20px &quot;Segoe UI&quot;" color="#48505e" right="0" width="478"/>
+                    <Edit id="edtEmail" taborder="15" right="0" height="44" displaynulltext="Enter your email" font="normal 400 16px/24px &quot;Segoe UI&quot;" borderRadius="8px" password="false" width="478" top="staEmailLabel:1"/>
+                    <Static id="staEmailMsg" taborder="11" top="edtEmail:1" height="18" text="" font="12px 'Arial'" color="#d93025" visible="false" right="0" width="478"/>
+                    <Static id="staPasswordLabel" taborder="6" text="Password*" top="staEmailMsg:1" height="20" font="normal 500 14px/20px &quot;Segoe UI&quot;" color="#48505e" right="0" width="472"/>
+                    <Edit id="edtPassword" taborder="5" right="0" height="44" displaynulltext="Enter your password" font="normal 400 16px/24px &quot;Segoe UI&quot;" borderRadius="8px" password="true" width="478" top="staPasswordLabel:1"/>
+                    <Static id="staPasswordMsg" taborder="10" top="edtPassword:1" height="18" text="" font="12px 'Arial'" color="#d93025" visible="false" right="0" width="478"/>
+                    <Static id="staConfirmPasswordLabel" taborder="8" text="Confirm password*" top="staPasswordMsg:1" height="20" font="normal 500 14px/20px &quot;Segoe UI&quot;" color="#48505e" right="0" width="478"/>
+                    <Edit id="edtConfirmPassword" taborder="7" right="0" height="44" displaynulltext="Confirm your password" font="normal 400 16px/24px &quot;Segoe UI&quot;" borderRadius="8px" password="true" width="478" top="staConfirmPasswordLabel:1"/>
+                    <Static id="staConfirmPasswordMsg" taborder="9" top="edtConfirmPassword:1" height="18" text="" font="12px 'Arial'" color="#d93025" visible="false" right="0" width="478"/>
+                    <Static id="staPasswordHint" taborder="1" top="staConfirmPasswordMsg:17" height="27" text="Must be at least 8 characters." font="13px 'Arial'" color="#7c8794" right="0" width="478"/>
+                    <Button id="btnGetStarted" taborder="3" text="Create account" top="staPasswordHint:15" height="44" right="0" width="478" background="#1366D9" borderRadius="4px" font="normal 500 16px/24px &quot;Segoe UI&quot;" color="#ffffff" onclick="btnGetStarted_onclick"/>
+                    <Static id="staLogin" taborder="0" text="Already have an account?" top="btnGetStarted:20" color="#667085" font="normal 400 14px/20px &quot;Segoe UI&quot;" textAlign="right" onclick="staLogin_onclick" right="100" width="200" height="22"/>
+                    <Button id="btnSignup" taborder="1" top="btnGetStarted:20" height="20" color="#1366d9" text="Sign up" font="normal 500 14px/20px &quot;Segoe UI&quot;" background="transparent" border="0px none" onclick="btnSignup_onclick" left="staLogin:2" right="0"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsStatus">
+        <ColumnInfo>
+          <Column id="code" type="STRING" size="256"/>
+          <Column id="message" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsRegisteredUsers">
+        <ColumnInfo>
+          <Column id="username" type="STRING" size="256"/>
+          <Column id="email" type="STRING" size="256"/>
+          <Column id="password" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[
+this.fnGetRegisterForm = function()
+{
+    try {
+        if (this.div00 && this.div00.form && this.div00.form.div00 && this.div00.form.div00.form) {
+            return this.div00.form.div00.form;
+        }
+        return null;
+    } catch (e) {
+        return null;
+    }
+};
+
+this.fnGetRegisterField = function(fieldName)
+{
+    var form = this.fnGetRegisterForm();
+    if (!form || !fieldName) {
+        return null;
+    }
+    return form[fieldName] || null;
+};
+
+this.fnResetValidation = function()
+{
+    var form = this.fnGetRegisterForm();
+    if (!form) {
+        return;
+    }
+
+    var msgFields = ["staNameMsg", "staEmailMsg", "staPasswordMsg", "staConfirmPasswordMsg"];
+    for (var i = 0; i < msgFields.length; i++) {
+        var msg = this.fnGetRegisterField(msgFields[i]);
+        if (msg) {
+            msg.set_visible(false);
+            msg.set_text("");
+        }
+    }
+};
+
+this.fnIsValidEmail = function(email)
+{
+    if (email == null || String(email).trim() == "") {
+        return false;
+    }
+
+    var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return pattern.test(String(email).trim());
+};
+
+this.fnSetError = function(field, message)
+{
+    var form = this.fnGetRegisterForm();
+    if (!form) {
+        return;
+    }
+
+    if (field == "name") {
+        var msgName = this.fnGetRegisterField("staNameMsg");
+        if (msgName) {
+            msgName.set_text(message);
+            msgName.set_visible(true);
+        }
+    } else if (field == "email") {
+        var msgEmail = this.fnGetRegisterField("staEmailMsg");
+        if (msgEmail) {
+            msgEmail.set_text(message);
+            msgEmail.set_visible(true);
+        }
+    } else if (field == "password") {
+        var msgPassword = this.fnGetRegisterField("staPasswordMsg");
+        if (msgPassword) {
+            msgPassword.set_text(message);
+            msgPassword.set_visible(true);
+        }
+    } else if (field == "confirm") {
+        var msgConfirm = this.fnGetRegisterField("staConfirmPasswordMsg");
+        if (msgConfirm) {
+            msgConfirm.set_text(message);
+            msgConfirm.set_visible(true);
+        }
+    }
+};
+
+this.fnIsEmailTaken = function(email)
+{
+    if (!this.dsRegisteredUsers || this.dsRegisteredUsers.rowcount == 0) {
+        return false;
+    }
+
+    var lowerEmail = String(email).toLowerCase();
+    for (var i = 0; i < this.dsRegisteredUsers.rowcount; i++) {
+        var savedEmail = String(this.dsRegisteredUsers.getColumn(i, "EMAIL")).toLowerCase();
+        if (savedEmail == lowerEmail) {
+            return true;
+        }
+    }
+    return false;
+};
+
+this.SignUpFrame_onload = function(obj, e)
+{
+    this.addEventHandler("onsize", this.SignUpFrame_onsize, this);
+    this.SignUpFrame_onsize();
+
+    if (!this.dsRegisteredUsers) {
+        this.dsRegisteredUsers = new nexacro.Dataset();
+        this.dsRegisteredUsers.addColumn("EMAIL", "string");
+        this.dsRegisteredUsers.addColumn("PASSWORD", "string");
+        this.dsRegisteredUsers.addColumn("USERNAME", "string");
+    }
+
+    this.fnResetValidation();
+};
+
+this.SignUpFrame_onsize = function()
+{
+    var formW = this.getOffsetWidth();
+    var cardW = this.div00 ? this.div00.getOffsetWidth() : 600;
+
+    if (this.div00) {
+        this.div00.set_left((formW - cardW) / 2);
+        this.div00.set_top(0);
+    }
+};
+
+this.btnGetStarted_onclick = function(obj, e)
+{
+    var form = this.fnGetRegisterForm();
+    if (!form) {
+        return;
+    }
+
+    this.fnResetValidation();
+
+    var edtName = this.fnGetRegisterField("edtName");
+    var edtEmail = this.fnGetRegisterField("edtEmail");
+    var edtPassword = this.fnGetRegisterField("edtPassword");
+    var edtConfirmPassword = this.fnGetRegisterField("edtConfirmPassword");
+
+    if (!edtName || !edtEmail || !edtPassword || !edtConfirmPassword) {
+        return;
+    }
+
+    var name = edtName.value;
+    var email = edtEmail.value;
+    var password = edtPassword.value;
+    var confirmPassword = edtConfirmPassword.value;
+    var isValid = true;
+
+    if (name == null || String(name).trim() == "") {
+        this.fnSetError("name", "Please enter your name.");
+        isValid = false;
+    }
+
+    if (email == null || String(email).trim() == "") {
+        this.fnSetError("email", "Please enter your email.");
+        isValid = false;
+    } else if (!this.fnIsValidEmail(email)) {
+        this.fnSetError("email", "Please enter a valid email address.");
+        isValid = false;
+    } else if (this.fnIsEmailTaken(email)) {
+        this.fnSetError("email", "This email is already registered.");
+        isValid = false;
+    }
+
+    if (password == null || String(password).trim() == "") {
+        this.fnSetError("password", "Please enter your password.");
+        isValid = false;
+    } else if (String(password).length < 8) {
+        this.fnSetError("password", "Password must be at least 8 characters.");
+        isValid = false;
+    }
+
+    if (confirmPassword == null || String(confirmPassword).trim() == "") {
+        this.fnSetError("confirm", "Please confirm your password.");
+        isValid = false;
+    } else if (String(password) != String(confirmPassword)) {
+        this.fnSetError("confirm", "Passwords do not match.");
+        isValid = false;
+    }
+
+    if (!isValid) {
+        return;
+    }
+
+    this.dsRegisteredUsers.clearData();
+    var r = this.dsRegisteredUsers.addRow();
+    this.dsRegisteredUsers.setColumn(r, "email", String(email).trim());
+    this.dsRegisteredUsers.setColumn(r, "password", password);
+    this.dsRegisteredUsers.setColumn(r, "username", name);
+
+    var id = "register";
+    var url = "http://localhost:8080/login/register";
+    var reqDs = "dsInput=dsRegisteredUsers";
+    var respDs = "dsStatus=ResultDataset";
+    var args = "";
+    var callback = "fnCallback";
+
+    this.transaction(id, url, reqDs, respDs, args, callback);
+};
+
+this.fnCallback = function(svcID, errCD, errMsg)
+{
+    if (errCD < 0) {
+        alert(errMsg);
+        return;
+    }
+
+    var cnt = this.dsStatus.getRowCount();
+    if (cnt == 0) {
+        alert("Register Fail");
+        return;
+    }
+
+    var code = this.dsStatus.getColumn(0, "code");
+    if (code > 0) {
+        alert(this.dsStatus.getColumn(0, "message"));
+        return;
+    }
+
+    alert("Account created successfully.");
+
+    var form = this.fnGetRegisterForm();
+    if (form) {
+        var clearName = this.fnGetRegisterField("edtName");
+        var clearEmail = this.fnGetRegisterField("edtEmail");
+        var clearPassword = this.fnGetRegisterField("edtPassword");
+        var clearConfirm = this.fnGetRegisterField("edtConfirmPassword");
+
+        if (clearName) clearName.set_value("");
+        if (clearEmail) clearEmail.set_value("");
+        if (clearPassword) clearPassword.set_value("");
+        if (clearConfirm) clearConfirm.set_value("");
+    }
+
+    this.fnResetValidation();
+
+    var ownerFrame = this.getOwnerFrame();
+    if (ownerFrame) {
+        ownerFrame.set_formurl("frame::LoginFrame.xfdl");
+    }
+};
+
+this.btnSignup_onclick = function(obj, e)
+{
+    var parentFrame = this.getOwnerFrame();
+    if (parentFrame) {
+        parentFrame.set_formurl("frame::LoginFrame.xfdl");
+    }
+};
+
+this.staLogin_onclick = function(obj, e)
+{
+    var parentFrame = this.getOwnerFrame();
+    if (parentFrame) {
+        parentFrame.set_formurl("frame::LoginFrame.xfdl");
+    }
+};
+
+this.btnForgot_onclick = function(obj, e)
+{
+};
+]]></Script>
+  </Form>
+</FDL>

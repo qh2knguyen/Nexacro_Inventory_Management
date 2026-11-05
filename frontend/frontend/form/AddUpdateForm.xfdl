@@ -1,0 +1,325 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="AddUpdateForm" width="588" height="490" titletext="New Form" onload="AddUpdateForm_onload">
+    <Layouts>
+      <Layout height="490" width="588">
+        <Static id="sta_form_title" taborder="0" left="78" top="34" height="36" font="normal 600 24px/normal &quot;Segoe UI&quot;" right="40"/>
+        <Div id="div00" taborder="1" text="div00" left="40" top="84" height="1" border="1px solid #D7DEDD" right="40">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+        <Button id="btn_cancel" taborder="2" text="Cancel" height="40" width="100" color="#ffffff" letterSpacing="0.5px" bottom="20" cssclass="btn_WF_FillBlue" background="#DA4B26" right="40" onclick="btn_cancel_onclick"/>
+        <Edit id="edt_employee_name" taborder="3" left="40" top="123" height="40" borderRadius="6px" border="1px solid #d7dedd" displaynulltext="Enter Employee Name" font="normal 400 14px/normal &quot;Segoe UI&quot;" width="250"/>
+        <Static id="sta_emp_coe_salary" taborder="4" text="Coe Salary" left="40" top="181" width="95" height="20" font="normal 500 14px/normal &quot;Segoe UI&quot;" color="#333333"/>
+        <Edit id="edt_emp_coe_salary" taborder="5" left="40" top="204" width="95" height="40" borderRadius="6px" border="1px solid #d7dedd" inputtype="number" displaynulltext="Enter Value" font="normal 400 14px/normal &quot;Segoe UI&quot;"/>
+        <Calendar id="cal_emp_next_pro" taborder="6" top="285" height="40" borderRadius="6px" dateformat="dd/MM/yy" background="#ffffff" datepickerchangetype="button" font="normal 400 14px/normal &quot;Segoe UI&quot;" editformat="dd/MM/yy" left="298" width="121"/>
+        <Static id="sta00" taborder="7" text="Employee Name" left="40" top="99" width="250" height="20" font="normal 500 14px/normal &quot;Segoe UI&quot;" color="#333333"/>
+        <Static id="sta_emp_rank" taborder="8" text="Rank" left="170" top="262" width="120" height="20" font="normal 500 14px/normal &quot;Segoe UI&quot;" color="#333333"/>
+        <Static id="sta_emp_next_pro" taborder="9" text="Emp Next Pro" left="299" top="262" width="120" height="20" font="normal 500 14px/normal &quot;Segoe UI&quot;" color="#333333"/>
+        <Button id="btn_submit" taborder="10" text="Submit" height="40" width="100" color="#ffffff" letterSpacing="0.8px" bottom="20" cssclass="btn_WF_FillBlue" right="148" onclick="btn_submit_onclick"/>
+        <ImageViewer id="img_title" taborder="11" top="40" width="24" height="24" stretch="fit" left="40"/>
+        <Static id="sta00_00" taborder="12" text="Type Code" left="298" top="99" width="78" height="20" font="normal 500 14px/normal &quot;Segoe UI&quot;" color="#333333"/>
+        <Combo id="cbo_type_cd" taborder="13" left="298" top="123" width="78" height="40" borderRadius="6px" value="" index="-1" font="normal 400 14px/normal &quot;Segoe UI&quot;" innerdataset="ds_type_cd" codecolumn="ID" datacolumn="VALUE"/>
+        <Combo id="cbo_pos_cd" taborder="14" left="384" top="123" width="78" height="40" borderRadius="6px" value="" index="-1" font="normal 400 14px/normal &quot;Segoe UI&quot;" innerdataset="ds_pos_cd" codecolumn="ID" datacolumn="VALUE"/>
+        <Static id="sta00_00_00" taborder="15" text="Pos Code" left="384" top="99" width="78" height="20" font="normal 500 14px/normal &quot;Segoe UI&quot;" color="#333333"/>
+        <Combo id="cbo_deg_cd" taborder="16" left="470" top="123" width="78" height="40" borderRadius="6px" value="" index="-1" font="normal 400 14px/normal &quot;Segoe UI&quot;" innerdataset="ds_deg_cd" codecolumn="ID" datacolumn="VALUE"/>
+        <Static id="sta00_00_00_00" taborder="17" text="Deg Code" left="470" top="99" width="78" height="20" font="normal 500 14px/normal &quot;Segoe UI&quot;" color="#333333"/>
+        <Edit id="edt_emp_coe_limit" taborder="18" left="143" top="204" width="95" height="40" borderRadius="6px" border="1px solid #d7dedd" inputtype="number" displaynulltext="Enter Value" font="normal 400 14px/normal &quot;Segoe UI&quot;"/>
+        <Static id="sta_emp_coe_limit" taborder="19" text="Coe Limit" left="143" top="181" width="95" height="20" font="normal 500 14px/normal &quot;Segoe UI&quot;" color="#333333"/>
+        <Edit id="edt_emp_coe_pos" taborder="20" left="246" top="204" height="40" borderRadius="6px" border="1px solid #d7dedd" inputtype="number" displaynulltext="Enter Value" font="normal 400 14px/normal &quot;Segoe UI&quot;" width="96"/>
+        <Static id="sta_emp_coe_pos" taborder="21" text="Coe Pos" left="246" top="181" width="95" height="20" font="normal 500 14px/normal &quot;Segoe UI&quot;" color="#333333"/>
+        <Edit id="edt_emp_all_coe" taborder="22" top="204" height="40" borderRadius="6px" border="1px solid #d7dedd" inputtype="number" displaynulltext="Enter Value" font="normal 400 14px/normal &quot;Segoe UI&quot;" width="95" right="39"/>
+        <Static id="sta_emp_all_coe" taborder="23" text="All Coe" left="454" top="181" width="96" height="20" font="normal 500 14px/normal &quot;Segoe UI&quot;" color="#333333"/>
+        <Combo id="cbo_emp_rank" taborder="24" left="169" top="285" width="121" height="40" borderRadius="6px" value="" index="-1" font="normal 400 14px/normal &quot;Segoe UI&quot;" innerdataset="ds_rank" codecolumn="ID" datacolumn="VALUE"/>
+        <Calendar id="cal_date_decision" taborder="25" top="285" height="40" borderRadius="6px" dateformat="dd/MM/yy" background="#ffffff" datepickerchangetype="button" font="normal 400 14px/normal &quot;Segoe UI&quot;" editformat="dd/MM/yy" left="427" width="121"/>
+        <Static id="sta_date_decision" taborder="26" text="Date Decision" left="427" top="262" width="120" height="20" font="normal 500 14px/normal &quot;Segoe UI&quot;" color="#333333"/>
+        <Static id="sta_no_decision" taborder="27" text="No Decision" left="40" top="262" width="120" height="20" font="normal 500 14px/normal &quot;Segoe UI&quot;" color="#333333"/>
+        <Edit id="edt_no_decision" taborder="28" left="40" top="285" width="121" height="40" borderRadius="6px" border="1px solid #d7dedd" inputtype="normal" displaynulltext="Enter Value" font="normal 400 14px/normal &quot;Segoe UI&quot;"/>
+        <Static id="sta_status" taborder="29" text="Status" left="40" top="343" width="120" height="20" font="normal 500 14px/normal &quot;Segoe UI&quot;" color="#333333"/>
+        <Radio id="rdo_status" taborder="30" left="40" top="366" height="40" innerdataset="ds_status" codecolumn="ID" datacolumn="VALUE" direction="vertical" right="40" font="normal 400 14px/normal &quot;Segoe UI&quot;" index="-1" text="" value=""/>
+        <Div id="div00_00" taborder="31" text="div00" left="40" top="414" height="1" border="1px solid #D7DEDD" right="40">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+        <Static id="sta_validate_message" taborder="32" text="This field is required!" left="40" top="430" width="290" height="20" color="#da4b26" font="normal 500 11px/normal &quot;Segoe UI&quot;" visible="false" verticalAlign="top"/>
+        <Edit id="edt_emp_coe_res" taborder="33" left="350" top="204" height="40" borderRadius="6px" border="1px solid #d7dedd" inputtype="number" displaynulltext="Enter Value" font="normal 400 14px/normal &quot;Segoe UI&quot;" width="96"/>
+        <Static id="sta_emp_coe_res" taborder="34" text="Coe Res" left="350" top="181" width="95" height="20" font="normal 500 14px/normal &quot;Segoe UI&quot;" color="#333333"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_status">
+        <ColumnInfo>
+          <Column id="ID" type="STRING" size="256"/>
+          <Column id="VALUE" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="ID">ACTIVE</Col>
+            <Col id="VALUE">Active</Col>
+          </Row>
+          <Row>
+            <Col id="ID">INACTIVE</Col>
+            <Col id="VALUE">Inactive</Col>
+          </Row>
+          <Row>
+            <Col id="ID">PENDING</Col>
+            <Col id="VALUE">Pending</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_type_cd">
+        <ColumnInfo>
+          <Column id="ID" type="STRING" size="256"/>
+          <Column id="VALUE" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="ID">T01</Col>
+            <Col id="VALUE">T01</Col>
+          </Row>
+          <Row>
+            <Col id="ID">T02</Col>
+            <Col id="VALUE">T02</Col>
+          </Row>
+          <Row>
+            <Col id="ID">T03</Col>
+            <Col id="VALUE">T03</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_pos_cd">
+        <ColumnInfo>
+          <Column id="ID" type="STRING" size="256"/>
+          <Column id="VALUE" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="ID">P01</Col>
+            <Col id="VALUE">P01</Col>
+          </Row>
+          <Row>
+            <Col id="ID">P02</Col>
+            <Col id="VALUE">P02</Col>
+          </Row>
+          <Row>
+            <Col id="ID">P03</Col>
+            <Col id="VALUE">P03</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_deg_cd">
+        <ColumnInfo>
+          <Column id="ID" type="STRING" size="256"/>
+          <Column id="VALUE" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="ID">D01</Col>
+            <Col id="VALUE">D01</Col>
+          </Row>
+          <Row>
+            <Col id="ID">D02</Col>
+            <Col id="VALUE">D02</Col>
+          </Row>
+          <Row>
+            <Col id="ID">D03</Col>
+            <Col id="VALUE">D03</Col>
+          </Row>
+          <Row>
+            <Col id="ID">D04</Col>
+            <Col id="VALUE">D04</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_rank">
+        <ColumnInfo>
+          <Column id="ID" type="STRING" size="256"/>
+          <Column id="VALUE" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="ID">1</Col>
+            <Col id="VALUE">1</Col>
+          </Row>
+          <Row>
+            <Col id="ID">2</Col>
+            <Col id="VALUE">2</Col>
+          </Row>
+          <Row>
+            <Col id="ID">3</Col>
+            <Col id="VALUE">3</Col>
+          </Row>
+          <Row>
+            <Col id="ID">4</Col>
+            <Col id="VALUE">4</Col>
+          </Row>
+          <Row>
+            <Col id="ID">5</Col>
+            <Col id="VALUE">5</Col>
+          </Row>
+        </Rows>
+      </Dataset>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[this.formType = "add";
+this.updateProductId = "";
+
+this.btn_cancel_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.close(false);
+};
+
+this.AddUpdateForm_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	var fType = this.getOwnerFrame().formType;
+	this.formType = fType;
+	switch(fType) 
+	{
+		case "add":
+			this.img_title.set_image("theme://images/user-plus.png");
+			this.sta_form_title.set_text("Add New Employee");
+			this.edt_employee_name.setFocus();
+			break;
+		case "update":
+			this.img_title.set_image("theme://images/user-pen.png");
+			this.sta_form_title.set_text("Update Employee");
+			break;
+	}
+};
+
+this.btn_submit_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var isValid = true;
+	var empName = this.edt_employee_name.value ? this.edt_employee_name.value.trim() : "";
+	var typeCd = this.cbo_type_cd.value;
+	var posCd = this.cbo_pos_cd.value;
+	var degCd = this.cbo_deg_cd.value;
+	var coeSalary = this.edt_emp_coe_salary.value;
+	var coeLimit = this.edt_emp_coe_limit.value;
+	var coePos = this.edt_emp_coe_pos.value;
+	var coeRes = this.edt_emp_coe_res.value;
+	var allCoe = this.edt_emp_all_coe.value;
+	var noDecision = this.edt_no_decision.value ? this.edt_no_decision.value.trim() : "";
+	var empRank = this.cbo_emp_rank.value;
+	var empNextPro = this.cal_emp_next_pro.value;
+	var dateDecision = this.cal_date_decision.value;
+	var status = this.rdo_status.value;
+	
+	if (!empName)
+	{
+		this.sta_validate_message.set_visible(true);
+		this.sta_validate_message.set_text("Please fill in all required fields.");
+		this.edt_employee_name.set_border("1px solid #DA4B26");
+		isValid = false;
+	}
+	if (!typeCd)
+	{
+		this.sta_validate_message.set_visible(true);
+		this.sta_validate_message.set_text("Please fill in all required fields.");
+		this.cbo_type_cd.set_border("1px solid #DA4B26");
+		isValid = false;
+	}
+	if (!posCd)
+	{
+		this.sta_validate_message.set_visible(true);
+		this.sta_validate_message.set_text("Please fill in all required fields.");
+		this.cbo_pos_cd.set_border("1px solid #DA4B26");
+		isValid = false;
+	}
+	if (!degCd)
+	{
+		this.sta_validate_message.set_visible(true);
+		this.sta_validate_message.set_text("Please fill in all required fields.");
+		this.cbo_deg_cd.set_border("1px solid #DA4B26");
+		isValid = false;
+	}
+	if (!coeSalary)
+	{
+		this.sta_validate_message.set_visible(true);
+		this.sta_validate_message.set_text("Please fill in all required fields.");
+		this.edt_emp_coe_salary.set_border("1px solid #DA4B26");
+		isValid = false;
+	}
+	if (!coeLimit)
+	{
+		this.sta_validate_message.set_visible(true);
+		this.sta_validate_message.set_text("Please fill in all required fields.");
+		this.edt_emp_coe_limit.set_border("1px solid #DA4B26");
+		isValid = false;
+	}
+	if (!coePos)
+	{
+		this.sta_validate_message.set_visible(true);
+		this.sta_validate_message.set_text("Please fill in all required fields.");
+		this.edt_emp_coe_pos.set_border("1px solid #DA4B26");
+		isValid = false;
+	}
+	if (!coeRes)
+	{
+		this.sta_validate_message.set_visible(true);
+		this.sta_validate_message.set_text("Please fill in all required fields.");
+		this.edt_emp_coe_res.set_border("1px solid #DA4B26");
+		isValid = false;
+	}
+	if (!allCoe)
+	{
+		this.sta_validate_message.set_visible(true);
+		this.sta_validate_message.set_text("Please fill in all required fields.");
+		this.edt_emp_all_coe.set_border("1px solid #DA4B26");
+		isValid = false;
+	}
+	if (!noDecision)
+	{
+		this.sta_validate_message.set_visible(true);
+		this.sta_validate_message.set_text("Please fill in all required fields.");
+		this.edt_no_decision.set_border("1px solid #DA4B26");
+		isValid = false;
+	}
+	if (!empRank)
+	{
+		this.sta_validate_message.set_visible(true);
+		this.sta_validate_message.set_text("Please fill in all required fields.");
+		this.cbo_emp_rank.set_border("1px solid #DA4B26");
+		isValid = false;
+	}
+	if (!empNextPro)
+	{
+		this.sta_validate_message.set_visible(true);
+		this.sta_validate_message.set_text("Please fill in all required fields.");
+		this.cal_emp_next_pro.set_border("1px solid #DA4B26");
+		isValid = false;
+	}
+	if (!dateDecision)
+	{
+		this.sta_validate_message.set_visible(true);
+		this.sta_validate_message.set_text("Please fill in all required fields.");
+		this.cal_date_decision.set_border("1px solid #DA4B26");
+		isValid = false;
+	}
+	
+	if (!isValid) {
+		return;
+	}
+	
+	this.close(true);
+};
+]]></Script>
+    <Bind>
+      <BindItem id="item0" compid="edt_employee_name" propid="value" datasetid="this.opener.ds_employees" columnid="empName"/>
+      <BindItem id="item1" compid="cbo_type_cd" propid="value" datasetid="this.opener.ds_employees" columnid="typeCd"/>
+      <BindItem id="item2" compid="cbo_pos_cd" propid="value" datasetid="this.opener.ds_employees" columnid="posCd"/>
+      <BindItem id="item3" compid="cbo_deg_cd" propid="value" datasetid="this.opener.ds_employees" columnid="degCd"/>
+      <BindItem id="item4" compid="edt_emp_coe_salary" propid="value" datasetid="this.opener.ds_employees" columnid="empCoeSalary"/>
+      <BindItem id="item5" compid="edt_emp_coe_limit" propid="value" datasetid="this.opener.ds_employees" columnid="empCoeLimit"/>
+      <BindItem id="item6" compid="edt_emp_coe_pos" propid="value" datasetid="this.opener.ds_employees" columnid="empCoePos"/>
+      <BindItem id="item7" compid="edt_emp_all_coe" propid="value" datasetid="this.opener.ds_employees" columnid="empAllCoe"/>
+      <BindItem id="item8" compid="edt_no_decision" propid="value" datasetid="this.opener.ds_employees" columnid="noDecision"/>
+      <BindItem id="item9" compid="cbo_emp_rank" propid="value" datasetid="this.opener.ds_employees" columnid="empRank"/>
+      <BindItem id="item10" compid="cal_emp_next_pro" propid="value" datasetid="this.opener.ds_employees" columnid="empNextPro"/>
+      <BindItem id="item11" compid="cal_date_decision" propid="value" datasetid="this.opener.ds_employees" columnid="dateDecision"/>
+      <BindItem id="item12" compid="rdo_status" propid="value" datasetid="this.opener.ds_employees" columnid="status"/>
+      <BindItem id="item13" compid="edt_emp_coe_res" propid="value" datasetid="this.opener.ds_employees" columnid="empCoeRes"/>
+    </Bind>
+  </Form>
+</FDL>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Dashboard" width="1546" height="845" titletext="Dashboard" background="#F0F1F3">
+    <Layouts>
+      <Layout height="845" mobileorientation="landscape" width="1546">
+        <Div id="div_dashboard" taborder="0" left="43" top="8" right="43" bottom="8" background="#ffffff" borderRadius="8px">
+          <Layouts>
+            <Layout>
+              <Static id="sta_title" taborder="0" text="Dashboard" left="21" top="28" width="180" height="30" font="normal 500 20px/30px &quot;Segoe UI&quot;" color="#101828"/>
+              <Static id="sta_subtitle" taborder="1" text="Overview of inventory and operations" left="21" top="62" width="280" height="24" font="normal 400 16px/24px &quot;Segoe UI&quot;" color="#667085"/>
+
+              <Div id="div_card_1" taborder="2" left="21" top="108" width="260" height="120" border="1px solid #E4E7EC" borderRadius="12px">
+                <Layouts>
+                  <Layout>
+                    <Static id="sta_label" taborder="0" text="Total Products" left="20" top="18" width="130" height="20" font="normal 500 14px/20px &quot;Segoe UI&quot;" color="#667085"/>
+                    <Static id="sta_value" taborder="1" text="1,248" left="20" top="46" width="120" height="34" font="normal 600 28px/34px &quot;Segoe UI&quot;" color="#101828"/>
+                    <Static id="sta_delta" taborder="2" text="+8.2%" left="20" top="86" width="80" height="20" font="normal 500 13px/20px &quot;Segoe UI&quot;" color="#16A34A"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+
+              <Div id="div_card_2" taborder="3" left="295" top="108" width="260" height="120" border="1px solid #E4E7EC" borderRadius="12px">
+                <Layouts>
+                  <Layout>
+                    <Static id="sta_label" taborder="0" text="Revenue" left="20" top="18" width="130" height="20" font="normal 500 14px/20px &quot;Segoe UI&quot;" color="#667085"/>
+                    <Static id="sta_value" taborder="1" text="₹25.4K" left="20" top="46" width="120" height="34" font="normal 600 28px/34px &quot;Segoe UI&quot;" color="#101828"/>
+                    <Static id="sta_delta" taborder="2" text="+12.5%" left="20" top="86" width="80" height="20" font="normal 500 13px/20px &quot;Segoe UI&quot;" color="#16A34A"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+
+              <Div id="div_card_3" taborder="4" left="569" top="108" width="260" height="120" border="1px solid #E4E7EC" borderRadius="12px">
+                <Layouts>
+                  <Layout>
+                    <Static id="sta_label" taborder="0" text="Low Stock" left="20" top="18" width="130" height="20" font="normal 500 14px/20px &quot;Segoe UI&quot;" color="#667085"/>
+                    <Static id="sta_value" taborder="1" text="42" left="20" top="46" width="120" height="34" font="normal 600 28px/34px &quot;Segoe UI&quot;" color="#101828"/>
+                    <Static id="sta_delta" taborder="2" text="-3 items" left="20" top="86" width="80" height="20" font="normal 500 13px/20px &quot;Segoe UI&quot;" color="#D92D20"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+
+              <Div id="div_card_4" taborder="5" left="843" top="108" width="260" height="120" border="1px solid #E4E7EC" borderRadius="12px">
+                <Layouts>
+                  <Layout>
+                    <Static id="sta_label" taborder="0" text="Suppliers" left="20" top="18" width="130" height="20" font="normal 500 14px/20px &quot;Segoe UI&quot;" color="#667085"/>
+                    <Static id="sta_value" taborder="1" text="86" left="20" top="46" width="120" height="34" font="normal 600 28px/34px &quot;Segoe UI&quot;" color="#101828"/>
+                    <Static id="sta_delta" taborder="2" text="+5 new" left="20" top="86" width="80" height="20" font="normal 500 13px/20px &quot;Segoe UI&quot;" color="#16A34A"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+
+              <Div id="div_chart" taborder="6" left="21" top="260" right="21" bottom="21" border="1px solid #E4E7EC" borderRadius="12px">
+                <Layouts>
+                  <Layout>
+                    <Static id="sta_chart_title" taborder="0" text="Sales trend" left="20" top="20" width="140" height="24" font="normal 600 18px/24px &quot;Segoe UI&quot;" color="#101828"/>
+                    <Static id="sta_placeholder" taborder="1" text="Chart area" left="0" top="0" right="0" bottom="0" textAlign="center" verticalAlign="middle" font="normal 500 24px/30px &quot;Segoe UI&quot;" color="#98A2B3"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>

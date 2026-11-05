@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="TopFrame" width="1546" height="100" titletext="New Form">
+    <Layouts>
+      <Layout height="100" width="1546">
+        <ImageViewer id="img_avatar" taborder="0" top="28" height="40" width="40" right="43" image="url('theme://images/avt.png')" stretch="fit" borderRadius="50%"/>
+        <Button id="btn_notification" taborder="1" top="28" height="40" cssclass="btn_Notification" right="img_avatar:30" width="30"/>
+        <Edit id="edt_emp_name" taborder="2" left="43" width="425" height="40" bottom="32" borderRadius="4px" font="normal 400 16px/normal &quot;Segoe UI&quot;" displaynulltext="Search product, supplier, order"/>
+      </Layout>
+    </Layouts>
+    <Bind>
+      <BindItem id="item0" compid="edt_emp_name" propid="value" datasetid="ds_emp_search" columnid="empName"/>
+    </Bind>
+  </Form>
+</FDL>

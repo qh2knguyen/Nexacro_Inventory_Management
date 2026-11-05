@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ADL version="2.0">
+  <Application id="application" screenid="desktop" onload="application_onload">
+    <Layout>
+      <MainFrame id="mainframe" showtitlebar="true" showstatusbar="false" width="1920" height="945" titletext="Employee" showcascadetitletext="false" openalign="center middle" onsize="mainframe_onsize" background="#F0F1F3">
+        <VFrameSet id="vfrs" showtitleicon="false" showtitlebar="false" showstatusbar="false" separatesize="*,0,0">
+          <Frames>
+            <ChildFrame id="frm_login" formurl="" dragmovetype="none" showtitlebar="false" showtitleicon="false"/>
+            <ChildFrame id="frm_signup" formurl="" dragmovetype="none" showtitlebar="false" showtitleicon="false"/>
+            <HFrameSet id="hfrs" showtitleicon="false" showtitlebar="false" showstatusbar="false" separatesize="373,*" background="#F0F1F3">
+              <Frames>
+                <ChildFrame id="frm_left" formurl="frame::LeftFrame.xfdl" dragmovetype="none" showtitlebar="false" showtitleicon="false"/>
+                <VFrameSet id="vfrs_work" separatesize="100,*" showtitlebar="false" showtitleicon="false" background="#F0F1F3" left="10">
+                  <Frames>
+                    <ChildFrame id="frm_top" formurl="frame::TopFrame.xfdl" showtitlebar="false" dragmovetype="none" showtitleicon="false"/>
+                    <ChildFrame id="frm_main" formurl="form::Dashboard.xfdl" showtitlebar="false" dragmovetype="none" showtitleicon="false"/>
+                  </Frames>
+                </VFrameSet>
+              </Frames>
+            </HFrameSet>
+          </Frames>
+        </VFrameSet>
+      </MainFrame>
+    </Layout>
+  </Application>
+  <Script type="xscript5.1"><![CDATA[// /**
+// *  PcMdi 프로젝트
+// *  @FileName 	application 
+// *  @Creator 	TOBESOFT
+// *  @CreateDate 	2023/10/30
+// *  @Desction   
+// ************** 소스 수정 이력 ***********************************************
+// *  date          		Modifier                Description
+// *******************************************************************************
+// * 2023/10/30			TOBESOFT				application
+// *******************************************************************************
+// */
+// 
+// /************************************************************************************************
+//  * application 변수 선언 영역
+// ************************************************************************************************/
+// this.gvRunMode  = "";					// 실행환경 S : Studio, L : local, D : 개발, R : 운영
+// 
+// /* 각 프레임에 해당되는 객체 참조 변수 */
+// this.gvVfrs;
+// this.gvFrmLogin;
+// this.gvFrmTop ;
+// this.gvHfrs;	
+// this.gvFrmLeft;
+// this.gvVfrsWork;
+// this.gvFrmMdi;
+// this.gvFrmMain;
+// this.gvFrsWork; 
+// 
+// /* 프레임 관련 변수*/
+this.LOGIN_FORM_PATH = "frame::LoginFrame.xfdl";
+// this.TOP_FORM_PATH   = "frame::frmTop.xfdl";
+// this.LEFT_FORM_PATH  = "frame::frmLeft.xfdl";
+// this.WORK_FORM_PATH  = "frame::frmWork.xfdl";
+// this.MDI_FORM_PATH   = "frame::frmMdi.xfdl";
+// this.MAIN_FORM_PATH  = "frame::frmMain.xfdl";
+// 
+// this.gvOpenMaxFrame = 10; 				// 열리는 프레임 최대 갯수
+// this.gvFrameStat = "login";				// 프레임상태(login,main,sub)
+// this.gvCloseCheck;						// 화면 닫을때 체크할지 여부
+// this.gvTitlebarHeight = 0;				// 차일드프레임 타이틀바 높이
+// 
+// /* grid 관련 */
+// this.gvUseGridContextMenu = true;		// 그리드 Context Menu 사용 여부
+// 
+// /***********************************************************************************************
+// * Application EVENT 영역(onload, onbeforeclose)
+// /***********************************************************************************************/
+this.showLoginFrame = function()
+{
+    var vfrs = this.mainframe && this.mainframe.vfrs;
+    if (vfrs) {
+        vfrs.set_separatesize("*,0,0");
+    }
+};
+
+this.showMainFrame = function()
+{
+    var vfrs = this.mainframe && this.mainframe.vfrs;
+    if (vfrs) {
+        vfrs.set_separatesize("0,0,*");
+    }
+};
+
+this.application_onload = function(obj:nexacro.Application,e:nexacro.LoadEventInfo)
+{
+	this.mainframe.vfrs.frm_login.set_formurl(this.LOGIN_FORM_PATH);
+    this.showLoginFrame();
+};
+// 
+// this.mainframe_onsize = function(obj:nexacro.MainFrame,e:nexacro.SizeEventInfo)
+// {
+// 	var objFrame = nexacro.getPopupFrames();
+// 	var nLeft = 0;
+// 	var nTop = 0;
+// 	for (var i = objFrame.length-1; i >= 0; i--)
+// 	{
+// 		if (objFrame[i]._modaltype == "center")
+// 		{
+// 			nLeft = (nexacro.getApplication().mainframe.width - objFrame[i].width)/2;
+// 			nTop = (nexacro.getApplication().mainframe.height - objFrame[i].height)/2;
+// 			objFrame[i].move(nLeft, nTop);
+// 		}
+// 	}
+// };
+]]></Script>
+</ADL>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="NewInventoryForm" width="1920" height="945" titletext="New Form">
+    <Layouts>
+      <Layout height="945" width="1920">
+        <Div id="div00" taborder="0" left="0" top="0" width="500" height="720">
+          <Layouts>
+            <Layout>
+              <Static id="sta00" taborder="0" text="New Product" left="29" top="27" width="124" height="30" font="normal 500 20px/30px &quot;Segoe UI&quot;" color="#383e49"/>
+              <Div id="div00" taborder="1" text="div00" left="142" top="69" width="211" height="81"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>
